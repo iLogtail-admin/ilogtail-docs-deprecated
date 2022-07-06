@@ -39,7 +39,7 @@
 
 * [概览](shu-ju-liu-shui-xian/gai-lan.md)
 * [输入](shu-ju-liu-shui-xian/shu-ru/README.md)
-  * [文件](shu-ju-liu-shui-xian/shu-ru/wen-jian.md)
+  * [文本日志](shu-ju-liu-shui-xian/shu-ru/wen-jian.md)
 * [解析](shu-ju-liu-shui-xian/jie-xi/README.md)
   * [正则](shu-ju-liu-shui-xian/jie-xi/zheng-ze.md)
 * [处理](shu-ju-liu-shui-xian/chu-li/README.md)

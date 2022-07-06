@@ -1,5 +1,11 @@
-# 文件
+# 文本日志
 
-{% hint style="info" %}
-**Good to know:** depending on the product you're building, it can be useful to explicitly document use cases. Got a product that can be used by a bunch of people in different ways? Maybe consider splitting it out!
-{% endhint %}
+file\_log input插件，可以实现从文本文件中采集日志。
+
+
+
+| 参数	         | 类型	    | 是否必选	 | 说明                          |
+| ----------- | ------ | ----- | --------------------------- |
+| Type        | string | 是     |                             |
+| LogPath     | string | 是     | 采集文本日志所在的目录，支持完整目录和通配符两种模式。 |
+| FilePattern | string | 是     | 采集文本日志的文件名，支持完整文件名和通配符两种模式。 |
