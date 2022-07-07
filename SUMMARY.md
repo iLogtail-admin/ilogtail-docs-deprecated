@@ -10,15 +10,15 @@
 
 ## 安装 <a href="#installation" id="installation"></a>
 
-* [快速开始](installation/kuai-su-kai-shi.md)
-* [容器使用](installation/rong-qi-shi-yong.md)
-* [使用Supervised启动](installation/shi-yong-supervised-qi-dong.md)
-* [发布记录](installation/fa-bu-ji-lu.md)
-* [支持的操作系统](installation/zhi-chi-de-cao-zuo-xi-tong.md)
-* [源代码](installation/yuan-dai-ma/README.md)
-  * [下载](installation/yuan-dai-ma/xia-zai.md)
-  * [编译](installation/yuan-dai-ma/bian-yi.md)
-* [Docker](installation/docker.md)
+* [快速开始](an-zhuang/kuai-su-kai-shi.md)
+* [容器使用](an-zhuang/rong-qi-shi-yong.md)
+* [使用Supervised启动](an-zhuang/shi-yong-supervised-qi-dong.md)
+* [发布记录](an-zhuang/fa-bu-ji-lu.md)
+* [支持的操作系统](an-zhuang/zhi-chi-de-cao-zuo-xi-tong.md)
+* [源代码](installation/sources/README.md)
+  * [下载](installation/sources/download-source-code.md)
+  * [编译](installation/sources/build-and-install.md.md)
+* [Docker](an-zhuang/docker.md)
 
 ## 概念
 
