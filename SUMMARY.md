@@ -15,9 +15,9 @@
 * [使用Supervised启动](an-zhuang/shi-yong-supervised-qi-dong.md)
 * [发布记录](an-zhuang/fa-bu-ji-lu.md)
 * [支持的操作系统](an-zhuang/zhi-chi-de-cao-zuo-xi-tong.md)
-* [源代码](installation/sources/README.md)
-  * [下载](installation/sources/download-source-code.md)
-  * [编译](installation/sources/build-and-install.md.md)
+* [源代码](an-zhuang/yuan-dai-ma/README.md)
+  * [下载](an-zhuang/yuan-dai-ma/xia-zai.md)
+  * [编译](an-zhuang/yuan-dai-ma/bian-yi.md)
 * [Docker](an-zhuang/docker.md)
 
 ## 概念
