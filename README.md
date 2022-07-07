@@ -30,16 +30,16 @@ Here are a couple of examples of succinct overviews from products with really gr
 
 Follow our handy guides to get started on the basics as quickly as possible:
 
-{% content-ref url="an-zhuang/kuai-su-kai-shi.md" %}
-[kuai-su-kai-shi.md](an-zhuang/kuai-su-kai-shi.md)
+{% content-ref url="installation/kuai-su-kai-shi.md" %}
+[kuai-su-kai-shi.md](installation/kuai-su-kai-shi.md)
 {% endcontent-ref %}
 
-{% content-ref url="an-zhuang/rong-qi-shi-yong.md" %}
-[rong-qi-shi-yong.md](an-zhuang/rong-qi-shi-yong.md)
+{% content-ref url="installation/rong-qi-shi-yong.md" %}
+[rong-qi-shi-yong.md](installation/rong-qi-shi-yong.md)
 {% endcontent-ref %}
 
-{% content-ref url="an-zhuang/shi-yong-supervised-qi-dong.md" %}
-[shi-yong-supervised-qi-dong.md](an-zhuang/shi-yong-supervised-qi-dong.md)
+{% content-ref url="installation/shi-yong-supervised-qi-dong.md" %}
+[shi-yong-supervised-qi-dong.md](installation/shi-yong-supervised-qi-dong.md)
 {% endcontent-ref %}
 
 {% hint style="info" %}

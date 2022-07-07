@@ -8,17 +8,17 @@
 * [产品优势](guan-yu/chan-pin-you-shi.md)
 * [社区版和企业版的对比说明](guan-yu/she-qu-ban-he-qi-ye-ban-de-dui-bi-shuo-ming.md)
 
-## 安装
+## 安装 <a href="#installation" id="installation"></a>
 
-* [快速开始](an-zhuang/kuai-su-kai-shi.md)
-* [容器使用](an-zhuang/rong-qi-shi-yong.md)
-* [使用Supervised启动](an-zhuang/shi-yong-supervised-qi-dong.md)
-* [发布记录](an-zhuang/fa-bu-ji-lu.md)
-* [支持的操作系统](an-zhuang/zhi-chi-de-cao-zuo-xi-tong.md)
-* [源代码](an-zhuang/yuan-dai-ma/README.md)
-  * [下载](an-zhuang/yuan-dai-ma/xia-zai.md)
-  * [编译](an-zhuang/yuan-dai-ma/bian-yi.md)
-* [Docker](an-zhuang/docker.md)
+* [快速开始](installation/kuai-su-kai-shi.md)
+* [容器使用](installation/rong-qi-shi-yong.md)
+* [使用Supervised启动](installation/shi-yong-supervised-qi-dong.md)
+* [发布记录](installation/fa-bu-ji-lu.md)
+* [支持的操作系统](installation/zhi-chi-de-cao-zuo-xi-tong.md)
+* [源代码](installation/yuan-dai-ma/README.md)
+  * [下载](installation/yuan-dai-ma/xia-zai.md)
+  * [编译](installation/yuan-dai-ma/bian-yi.md)
+* [Docker](installation/docker.md)
 
 ## 概念
 
@@ -40,7 +40,7 @@
 
 * [概览](data-pipeline/overview.md)
 * [输入](data-pipeline/input/README.md)
-  * [文本日志](data-pipeline/input/file_log.md)
+  * [文本日志](data-pipeline/input/file\_log.md)
 * [解析](data-pipeline/parser/README.md)
   * [正则](data-pipeline/parser/regex.md)
   * [Json](data-pipeline/parser/json.md)
