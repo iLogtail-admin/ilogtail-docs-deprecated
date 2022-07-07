@@ -1,5 +1,3 @@
 # 系统参数
 
-{% hint style="info" %}
-**Good to know:** Splitting your product into fundamental concepts, objects, or areas can be a great way to let readers deep dive into the concepts that matter most to them.
-{% endhint %}
+在`iLogtail`启动时，会加载`ilogtail_config.json`配置文件，该配置文件指定了。
