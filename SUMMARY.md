@@ -40,7 +40,7 @@
 
 * [概览](shu-ju-liu-shui-xian/gai-lan.md)
 * [输入](shu-ju-liu-shui-xian/shu-ru/README.md)
-  * [文本日志](shu-ju-liu-shui-xian/shu-ru/wen-jian.md)
+  * [文本日志](data-pipeline/input/file\_log.md)
 * [解析](data-pipeline/parser/README.md)
   * [正则](data-pipeline/parser/regex.md)
   * [Json](data-pipeline/parser/json.md)
