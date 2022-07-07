@@ -32,8 +32,8 @@
 
 ## 配置 <a href="#configuration" id="configuration"></a>
 
-* [采集配置](pei-zhi/cai-ji-pei-zhi.md)
-* [系统参数](pei-zhi/xi-tong-can-shu.md)
+* [采集配置](configuration/cai-ji-pei-zhi.md)
+* [系统参数](configuration/system-config.md)
 * [日志](configuration/logging.md)
 
 ## 数据流水线 <a href="#data-pipeline" id="data-pipeline"></a>
