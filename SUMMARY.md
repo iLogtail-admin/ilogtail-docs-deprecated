@@ -32,7 +32,7 @@
 
 ## 配置 <a href="#configuration" id="configuration"></a>
 
-* [采集配置](configuration/cai-ji-pei-zhi.md)
+* [采集配置](configuration/collection-config.md)
 * [系统参数](configuration/system-config.md)
 * [日志](configuration/logging.md)
 
