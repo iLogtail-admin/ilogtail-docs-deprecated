@@ -32,24 +32,24 @@
 
 ## 配置 <a href="#configuration" id="configuration"></a>
 
-* [采集配置](pei-zhi/cai-ji-pei-zhi.md)
-* [系统参数](pei-zhi/xi-tong-can-shu.md)
+* [采集配置](configuration/collection-config.md)
+* [系统参数](configuration/system-config.md)
 * [日志](configuration/logging.md)
 
 ## 数据流水线 <a href="#data-pipeline" id="data-pipeline"></a>
 
-* [概览](data-pipeline/overview1.md)
-* [输入](shu-ju-liu-shui-xian/shu-ru/README.md)
-  * [文本日志](shu-ju-liu-shui-xian/shu-ru/wen-jian.md)
+* [概览](data-pipeline/overview.md)
+* [输入](data-pipeline/input/README.md)
+  * [文本日志](data-pipeline/input/file_log.md)
 * [解析](data-pipeline/parser/README.md)
   * [正则](data-pipeline/parser/regex.md)
   * [Json](data-pipeline/parser/json.md)
   * [分隔符](data-pipeline/parser/delimiter.md)
-* [处理](shu-ju-liu-shui-xian/chu-li/README.md)
-  * [Intercom Integration](shu-ju-liu-shui-xian/chu-li/intercom-integration.md)
-* [聚合](shu-ju-liu-shui-xian/ju-he.md)
-* [输出](shu-ju-liu-shui-xian/shu-chu.md)
-* [常用配置模版](shu-ju-liu-shui-xian/chang-yong-pei-zhi-mo-ban.md)
+* [处理](data-pipeline/processor/README.md)
+  * [Intercom Integration](data-pipeline/processor/intercom-integration.md)
+* [聚合](data-pipeline/aggregator.md)
+* [输出](data-pipeline/flusher.md)
+* [常用配置模版](data-pipeline/chang-yong-pei-zhi-mo-ban.md)
 
 ## 工作原理
 
