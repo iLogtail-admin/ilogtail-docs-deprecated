@@ -39,4 +39,4 @@ cmake -DBUILD_LOGTAIL_UT=ON ..
 
 4.编译产出
 
-编译产出在容器的/src/core/build目录下，即主机代码根目录的docker-core-build下。
+编译产出在容器的`/src/core/build`目录下，即主机代码根目录的`docker-core-build`下。
