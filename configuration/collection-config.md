@@ -1,6 +1,6 @@
 # 采集配置
 
-`iLogtail`工作目录下`user_yaml_config.d`目录下可以配置数据流水线（`data-pipeline`），每个数据流水线对应一个配置文件，配置文件为`yaml`格式，以`.yaml`结尾。
+在`iLogtail`工作目录里，可以将采集配置存入`user_yaml_config.d`目录下进行数据采集。每个采集配置文件以数据流水线（`data-pipeline`）的形式组织，每个采集配置文件对应一个数据流水线，配置文件为`yaml`格式，文件名以`.yaml`结尾。
 
 
 
