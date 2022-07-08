@@ -14,6 +14,7 @@
 docker run -d --name docker_ilogtail \
   -v /:/logtail_host:ro \
   -v /var/run:/var/run \
+  -v /var/lib/docker_ilogtail/checkpoint:/usr/local/ilogtail/checkpoint \
   -v `pwd`/example_config/start_with_container/user_yaml_config.d:/usr/local/ilogtail/user_yaml_config.d \
   aliyun/ilogtail:latest
 ```
