@@ -1,13 +1,32 @@
 # 快速开始
 
-{% hint style="info" %}
-**Good to know:** your product docs aren't just a reference of all your features! use them to encourage folks to perform certain actions and discover the value in your product.
-{% endhint %}
+## 使用前提
 
-## The basics
+## 采集主机日志
 
-Projects are containers for task lists. Think of them as a library for everything your team needs to get done to complete or ship a project.
+1\. 下载预编译的iLogtail包，解压，进入解压目录
 
-## Creating a project
+2\. 使用示例配置
 
-Hit the big '+' button in your sidebar and select 'New Project' from the menu that pops up. Give your project a name, and you're good to go!
+```
+cp -a example_config/quick_start/* .
+```
+
+3\. 后台启动iLogtail
+
+```
+cd bin
+nohup ./ilogtail > stdout.log 2> stderr.log &
+```
+
+4\. 构造示例日志
+
+```
+echo 'hello world!' >> simple.log
+```
+
+5\. 查看采集到的文件日志
+
+```
+cat stdout.log
+```
