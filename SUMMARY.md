@@ -49,7 +49,7 @@
   * [Intercom Integration](data-pipeline/processor/intercom-integration.md)
 * [聚合](data-pipeline/aggregator.md)
 * [输出](data-pipeline/flusher.md)
-  * [标准输出/文件](data-pipeline/flusher/biao-zhun-shu-chu-wen-jian.md)
+  * [标准输出/文件](data-pipeline/flusher/stdout.md)
   * [SLS](data-pipeline/flusher/sls.md)
   * [Kafka](data-pipeline/flusher/kafka.md)
 * [常用配置模版](data-pipeline/chang-yong-pei-zhi-mo-ban.md)
