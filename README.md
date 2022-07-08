@@ -1,71 +1,49 @@
 # 什么是iLogtail
 
-{% hint style="info" %}
-**Good to know:** providing a brief overview of your product and its core use cases is a great place to start with product docs. Your product might seem obvious to you – you made it! However, to others, even folks who are trying your product after reading your site or getting a sales demo, it can still be unclear. This is your chance to clarify your product and set the right expectations!
-{% endhint %}
+iLogtail 为可观测场景而生，拥有的轻量级、高性能、自动化配置等诸多生产级别特性，在阿里巴巴以及外部数万家阿里云客户内部广泛应用。你可以将它部署于物理机，虚拟机，Kubernetes等多种环境中来采集遥测数据，例如logs、traces和metrics。
 
-Here are a couple of examples of succinct overviews from products with really great docs:
+[![GitHub stars](https://camo.githubusercontent.com/674a26318ece2d770231086a733bebdbb174c15721f03714f5b79930574a800a/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f616c69626162612f696c6f677461696c)](https://github.com/alibaba/ilogtail/stargazers) [![GitHub issues](https://camo.githubusercontent.com/4266ec67b48f666bc0d440f9d1399e4b56ffc4eca3af3764e062731be83b2873/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6973737565732f616c69626162612f696c6f677461696c)](https://github.com/alibaba/ilogtail/issues) [![GitHub license](https://camo.githubusercontent.com/608afe55a7ca2ed062304f89208d3b929fddcbde8923cd09ef40edb2d2c3bf76/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f616c69626162612f696c6f677461696c)](https://github.com/alibaba/ilogtail/blob/main/LICENSE)
 
-> Loom is a video messaging tool that helps you get your message across through instantly shareable videos.
->
-> With Loom, you can record your camera, microphone, and desktop simultaneously. Your video is then instantly available to share through Loom's patented technology.
->
-> — From the [Loom Docs](https://support.loom.com/hc/en-us/articles/360002158057-What-is-Loom-)
 
-> The Mailchimp Marketing API provides programmatic access to Mailchimp data and functionality, allowing developers to build custom features to do things like sync email activity and campaign analytics with their database, manage audiences and campaigns, and more.
->
-> — From the [Mailchimp Marketing API docs](https://mailchimp.com/developer/marketing/docs/fundamentals/)
 
-## Getting Started
+## 核心优势
 
-**Got 2 minutes?** Check out a video overview of our product:
+* 支持多种Logs、Traces、Metrics数据采集，尤其对容器、Kubernetes环境支持非常友好
+* 数据采集资源消耗极低，相比同类遥测数据采集的Agent性能好5-20倍
+* 高稳定性，在阿里巴巴以及数万阿里云客户生产中使用验证，部署量近千万，每天采集数十PB可观测数据
+* 支持插件化扩展，可任意扩充数据采集、处理、聚合、发送模块
+* 支持配置远程管理，支持以图形化、SDK、K8s Operator等方式进行配置管理，可轻松管理百万台机器的数据采集
+* 支持自监控、流量控制、资源控制、主动告警、采集统计等多种高级特性
 
-{% embed url="https://www.loom.com/share/3bfa83acc9fd41b7b98b803ba9197d90" %}
+## 功能
 
-{% hint style="info" %}
-**Good to know:** A succinct video overview is a great way to introduce folks to your product. Embed a Loom, Vimeo or YouTube video and you're good to go! We love this video from the fine folks at [Loom](https://loom.com) as a perfect example of a succinct feature overview.
-{% endhint %}
+**iLogtail** 支持收集多种遥测数据并将其传输到多种不同的后端，例如 [SLS可观测平台](https://help.aliyun.com/product/28958.html) 。 支持采集的数据主要如下:
 
-### Guides: Jump right in
+* Logs
+  * 收集静态日志文件
+  * 在容器化环境中运行时动态收集文件
+  * 在容器化环境中运行时动态收集 Stdout
+* Traces
+  * OpenTelemetry 协议
+  * Skywalking V2 协议
+  * Skywalking V3 协议
+  * ...
+* Metrics
+  * Node指标
+  * Process指标
+  * GPU 指标
+  * Nginx 指标
+  * 支持获取Prometheus指标
+  * 支持收集Telegraf指标
+  * ...
 
-Follow our handy guides to get started on the basics as quickly as possible:
+## 联系我们
 
-{% content-ref url="an-zhuang/kuai-su-kai-shi.md" %}
-[kuai-su-kai-shi.md](an-zhuang/kuai-su-kai-shi.md)
-{% endcontent-ref %}
+您可以通过[Github Issues](https://github.com/alibaba/ilogtail/issues) 报告bug、提出建议或参与讨论，或通过以下方式联系我们：
 
-{% content-ref url="an-zhuang/rong-qi-shi-yong.md" %}
-[rong-qi-shi-yong.md](an-zhuang/rong-qi-shi-yong.md)
-{% endcontent-ref %}
+* 钉钉：iLogtail社区
+* 微信：日志服务
+* 哔哩哔哩：[阿里云SLS](https://space.bilibili.com/630680534?from=search\&seid=2845737427240690794\&spm\_id\_from=333.337.0.0)
+* 知乎：[阿里云日志服务](https://www.zhihu.com/people/a-li-yun-ri-zhi-fu-wu)
 
-{% content-ref url="an-zhuang/shi-yong-supervised-qi-dong.md" %}
-[shi-yong-supervised-qi-dong.md](an-zhuang/shi-yong-supervised-qi-dong.md)
-{% endcontent-ref %}
-
-{% hint style="info" %}
-**Good to know:** your product docs aren't just a reference of all your features! use them to encourage folks to perform certain actions and discover the value in your product.
-{% endhint %}
-
-### Fundamentals: Dive a little deeper
-
-Learn the fundamentals of MyProduct to get a deeper understanding of our main features:
-
-{% content-ref url="gai-nian/guan-jian-gai-nian.md" %}
-[guan-jian-gai-nian.md](gai-nian/guan-jian-gai-nian.md)
-{% endcontent-ref %}
-
-{% content-ref url="gai-nian/shu-ju-liu-shui-xian/" %}
-[shu-ju-liu-shui-xian](gai-nian/shu-ju-liu-shui-xian/)
-{% endcontent-ref %}
-
-{% content-ref url="gai-nian/shu-ju-liu-shui-xian/shu-ru.md" %}
-[shu-ru.md](gai-nian/shu-ju-liu-shui-xian/shu-ru.md)
-{% endcontent-ref %}
-
-{% content-ref url="gai-nian/shu-ju-liu-shui-xian/jie-xi.md" %}
-[jie-xi.md](gai-nian/shu-ju-liu-shui-xian/jie-xi.md)
-{% endcontent-ref %}
-
-{% hint style="info" %}
-**Good to know:** Splitting your product into fundamental concepts, objects, or areas can be a great way to let readers deep dive into the concepts that matter most to them. Combine guides with this approach to 'fundamentals' and you're well on your way to great documentation!
-{% endhint %}
+<img src=".gitbook/assets/image (2).png" alt="" data-size="original">
