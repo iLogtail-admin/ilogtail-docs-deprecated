@@ -52,7 +52,6 @@
   * [标准输出/文件](data-pipeline/flusher/stdout.md)
   * [SLS](data-pipeline/flusher/sls.md)
   * [Kafka](data-pipeline/flusher/kafka.md)
-* [常用配置模版](data-pipeline/chang-yong-pei-zhi-mo-ban.md)
 
 ## 工作原理
 
