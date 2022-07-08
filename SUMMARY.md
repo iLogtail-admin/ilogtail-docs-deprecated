@@ -41,18 +41,15 @@
 * [概览](data-pipeline/overview.md)
 * [输入](data-pipeline/input/README.md)
   * [文本日志](data-pipeline/input/file\_log.md)
-* [解析](data-pipeline/parser/README.md)
-  * [正则](data-pipeline/parser/regex.md)
-  * [Json](data-pipeline/parser/json.md)
-  * [分隔符](data-pipeline/parser/delimiter.md)
 * [处理](data-pipeline/processor/README.md)
-  * [Intercom Integration](data-pipeline/processor/intercom-integration.md)
+  * [正则](data-pipeline/processor/regex.md)
+  * [Json](data-pipeline/processor/json.md)
+  * [分隔符](data-pipeline/processor/delimiter.md)
 * [聚合](data-pipeline/aggregator.md)
 * [输出](data-pipeline/flusher.md)
   * [标准输出/文件](data-pipeline/flusher/stdout.md)
   * [SLS](data-pipeline/flusher/sls.md)
   * [Kafka](data-pipeline/flusher/kafka.md)
-* [常用配置模版](data-pipeline/chang-yong-pei-zhi-mo-ban.md)
 
 ## 工作原理
 
