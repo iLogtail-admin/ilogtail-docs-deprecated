@@ -3,13 +3,11 @@
 完整的iLogtail由`C++`开发的主程序及`Golang`开发的插件组成，因此iLogtail的运行日志也有两部分组成。
 
 ## iLogtail主程序日志
-
 日志控制文件：`apsara_log_conf.json，`该文件`iLogtail`首次运行时会自动生成。
-
+  
 日志级别：`TRACE`、`DEBUG`、`INFO`、`WARNING`、`ERROR`、`FATAL`
-
+  
 日志类型
-
 * 运行日志：
   * 日志文件：`ilogtail.LOG`
   * 日志级别配置项：`Loggers:/apsara/sls/ilogtail:AsyncFileSink`
@@ -21,7 +19,6 @@
   * 日志级别配置项: 不需要修改。
 
 完整配置项：
-
 ```
 {
 	"Loggers" :
@@ -77,7 +74,6 @@
 ```
 
 ## iLogtail插件日志
-
 日志文件：`logtail_plugin.LOG`
 
 日志控制文件：`plugin_logger.xml`
@@ -87,11 +83,10 @@
 日志级别配置项：修改`minlevel`字段取值即可
 
 完整配置文件：
-
 ```
 <seelog type="asynctimer" asyncinterval="500000" minlevel="info" >
  <outputs formatid="common">
-	 <rollingfile type="size" filename="${ilogtail运行路径}/logtail_plugin.LOG" maxsize="2097152" maxrolls="10"/>
+	 <rollingfile type="size" filename="/root/logtail_code/ilogtail_main/run_dir/logtail_plugin.LOG" maxsize="2097152" maxrolls="10"/>
 
 
  </outputs>
