@@ -25,7 +25,7 @@ enable: true
 inputs:
   - Type: file_log
     LogPath: /home/test_log
-    FilePattern: *.log
+    FilePattern: "*.log"
 flushers:
   - Type: flusher_stdout
     OnlyStdout: true
