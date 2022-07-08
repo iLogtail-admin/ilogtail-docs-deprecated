@@ -25,7 +25,6 @@
 * [关键概念](gai-nian/guan-jian-gai-nian.md)
 * [数据流水线](gai-nian/shu-ju-liu-shui-xian/README.md)
   * [输入](gai-nian/shu-ju-liu-shui-xian/shu-ru.md)
-  * [解析](gai-nian/shu-ju-liu-shui-xian/jie-xi.md)
   * [处理](gai-nian/shu-ju-liu-shui-xian/chu-li.md)
   * [聚合](gai-nian/shu-ju-liu-shui-xian/ju-he.md)
   * [输出](gai-nian/shu-ju-liu-shui-xian/shu-chu.md)
