@@ -2,7 +2,7 @@
 
 ## 简介
 
-`processor_regex`插件可以通过正则匹配的模式实现文本日志的字段提取。
+`processor_regex processor`插件可以通过正则匹配的模式实现文本日志的字段提取。
 
 ## 配置参数
 

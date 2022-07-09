@@ -41,6 +41,7 @@
 * [输入](data-pipeline/input/README.md)
   * [文本日志](data-pipeline/input/file\_log.md)
 * [处理](data-pipeline/processor/README.md)
+  * [多行切分](data-pipeline/processor/split\_log\_regex.md)
   * [正则](data-pipeline/processor/regex.md)
   * [Json](data-pipeline/processor/json.md)
   * [分隔符](data-pipeline/processor/delimiter.md)

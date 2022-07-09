@@ -2,9 +2,9 @@
 
 ## 简介
 
-`processor_split_char`插件可以通过单字符的分隔符提取字段，该方式支持使用引用符对分隔符进行包裹。
+`processor_split_char processor`插件可以通过单字符的分隔符提取字段，该方式支持使用引用符对分隔符进行包裹。
 
-`processor_split_string`插件可以通过多字符的分隔符提取字段，该方式不支持使用引用符对分隔符进行包裹。
+`processor_split_string processor`插件可以通过多字符的分隔符提取字段，该方式不支持使用引用符对分隔符进行包裹。
 
 ## 配置参数
 
