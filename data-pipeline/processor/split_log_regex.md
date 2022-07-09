@@ -2,7 +2,11 @@
 
 ## 简介
 
-`processor_split_log_regex processor`插件可以通过正则匹配的模式实现文本日志的字段提取。
+`processor_split_log_regex processor`插件实现多行日志（例如Java程序日志）的采集。
+
+
+
+备注：该插件必须设置为`processor`的第一个插件。
 
 ## 配置参数
 
