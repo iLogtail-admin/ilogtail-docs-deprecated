@@ -4,9 +4,9 @@
 
 * [什么是iLogtail](README.md)
 * [发展历史](about/brief-history.md)
+* [产品优势](about/benefits.md)
 * [开源协议](about/license.md)
 * [社区版和企业版的对比说明](about/compare-editions.md)
-* [产品优势](about/benefits.md)
 
 ## 安装 <a href="#installation" id="installation"></a>
 
