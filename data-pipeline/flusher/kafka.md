@@ -20,7 +20,7 @@
 
 ## 样例
 
-采集`/home/test_log/`路径下的所有文件名匹配`*.log`规则的文件，并将采集结果发送到Kafka。
+采集`/home/test-log/`路径下的所有文件名匹配`*.log`规则的文件，并将采集结果发送到Kafka。
 
 ```
 enable: true
