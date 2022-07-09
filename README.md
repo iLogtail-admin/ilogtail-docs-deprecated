@@ -46,4 +46,4 @@ iLogtail 为可观测场景而生，拥有的轻量级、高性能、自动化�
 * 哔哩哔哩：[阿里云SLS](https://space.bilibili.com/630680534?from=search\&seid=2845737427240690794\&spm\_id\_from=333.337.0.0)
 * 知乎：[阿里云日志服务](https://www.zhihu.com/people/a-li-yun-ri-zhi-fu-wu)
 
-<img src=".gitbook/assets/image (2).png" alt="" data-size="original">
+<img src=".gitbook/assets/image.png" alt="" data-size="original">
