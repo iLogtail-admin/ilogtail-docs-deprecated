@@ -35,9 +35,9 @@
 
 * [概览](data-pipeline/overview.md)
 * [输入](data-pipeline/input/README.md)
-  * [文本日志](data-pipeline/input/file\_log.md)
+  * [文本日志](data-pipeline/input/file-log.md)
 * [处理](data-pipeline/processor/README.md)
-  * [多行切分](data-pipeline/processor/split\_log\_regex.md)
+  * [多行切分](data-pipeline/processor/split-log-regex.md)
   * [正则](data-pipeline/processor/regex.md)
   * [Json](data-pipeline/processor/json.md)
   * [分隔符](data-pipeline/processor/delimiter.md)
@@ -60,5 +60,5 @@
 * [CGO接口](developer-guide/cgo-interface.md)
 * [插件编写指南](developer-guide/plugin-guide.md)
 * [测试](developer-guide/test/README.md)
-  * [单元测试](developer-guide/test/unit-test.md)
+  * [单元测试](developer-guide/test/unit.md)
   * [E2E测试](developer-guide/test/e2e.md)
