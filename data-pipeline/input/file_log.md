@@ -2,7 +2,7 @@
 
 ## 简介
 
-`file_log` `input`插件可以实现从文本文件中采集日志。
+`file_log` `input`插件可以实现从文本文件中采集日志。采集的日志内容将会存在`content`字段中，并且采集路径存在`__tag__:__path__`字段中。
 
 ## 配置参数
 
@@ -16,15 +16,33 @@
 
 ## 样例
 
-采集`/home/test_log/`路径下的所有文件名匹配`*.log`规则的文件。
+采集`/home/test-log/`路径下的所有文件名匹配`*.log`规则的文件。
+
+* 输入
+
+```
+echo '{"key1": 123456, "key2": "abcd"}' >> /home/test-log/json.log
+```
+
+* 采集配置
 
 ```
 enable: true
 inputs:
   - Type: file_log
-    LogPath: /home/test_log
+    LogPath: /home/test-log/
     FilePattern: "*.log"
 flushers:
   - Type: flusher_stdout
-    OnlyStdout: true
+    OnlyStdout: true  
+```
+
+* 输出
+
+```
+{
+    "__tag__:__path__": "/home/test-dir/test_log/json.log",
+    "content": "{\"key1\": 123456, \"key2\": \"abcd\"}",
+    "__time__": "1657354763"
+}
 ```
