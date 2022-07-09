@@ -44,7 +44,7 @@
 * 输入
 
 ```
-echo "10.**.**.**|10/Aug/2017:14:57:51 +0800|POST|PutData?Category=YunOsAccountOpLog|0.024|18204|200|37|-|aliyun-sdk-java" >> /home/test-log/delimiter.log
+echo "127.0.0.1|10/Aug/2017:14:57:51 +0800|POST|PutData?Category=YunOsAccountOpLog|0.024|18204|200|37|-|aliyun-sdk-java" >> /home/test-log/delimiter.log
 ```
 
 * 采集配置
@@ -53,16 +53,23 @@ echo "10.**.**.**|10/Aug/2017:14:57:51 +0800|POST|PutData?Category=YunOsAccountO
 enable: true
 inputs:
   - Type: file_log
-    LogPath: /home/test-dir/test_log
+    LogPath: /home/test-log/
     FilePattern: delimiter.log
 processors:
   - Type: processor_split_char
     SourceKey: content
     SplitSep: "|"
     SplitKeys:
+      - ip
       - time
-      - k1
-      - k2
+      - method
+      - url
+      - request_time
+      - request_length
+      - status
+      - length
+      - ref_url
+      - browser
 flushers:
   - Type: flusher_sls
     Endpoint: cn-xxx.log.aliyuncs.com
@@ -77,7 +84,7 @@ flushers:
 ```
 {
     "__tag__:__path__": "/home/test-log/delimiter.log",
-    "ip": "10.**.**.**",
+    "ip": "127.0.0.1",
     "time": "10/Aug/2017:14:57:51 +0800",
     "method": "POST",
     "url": "PutData?Category=YunOsAccountOpLog",
