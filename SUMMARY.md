@@ -1,12 +1,12 @@
 # Table of contents
 
-## 关于
+## 关于 <a href="#about" id="about"></a>
 
 * [什么是iLogtail](README.md)
 * [发展历史](about/brief-history.md)
 * [开源协议](about/license.md)
-* [产品优势](about/benefits.md)
 * [社区版和企业版的对比说明](about/compare-editions.md)
+* [产品优势](about/benefits.md)
 
 ## 安装 <a href="#installation" id="installation"></a>
 
@@ -20,7 +20,7 @@
   * [编译](installation/sources/build.md)
 * [Docker](installation/docker.md)
 
-## 概念
+## 概念 <a href="#concepts" id="concepts"></a>
 
 * [关键概念](concepts/key-concepts.md)
 * [数据流水线](concepts/data-pipeline.md)
@@ -47,15 +47,15 @@
   * [SLS](data-pipeline/flusher/sls.md)
   * [Kafka](data-pipeline/flusher/kafka.md)
 
-## 工作原理
+## 工作原理 <a href="#principle" id="principle"></a>
 
 * [文件发现](principle/file-discovery.md)
 
-## 可观测性
+## 可观测性 <a href="#observability" id="observability"></a>
 
 * [日志](observability/logs.md)
 
-## 开发者指南
+## 开发者指南 <a href="#developer-guide" id="developer-guide"></a>
 
 * [CGO接口](developer-guide/cgo-interface.md)
 * [插件编写指南](developer-guide/plugin-guide.md)
