@@ -39,7 +39,15 @@
 
 ## 样例
 
-采集`/home/test-log/`路径下的`delimiter.log`文件，使用竖线`（|）`分隔符提取日志的字段值，并设置字段名为`time`、`k1`、`k2`。
+采集`/home/test-log/`路径下的`delimiter.log`文件，使用竖线`（|）`分隔符提取日志的字段值。
+
+* 输入
+
+```
+echo "10.**.**.**|10/Aug/2017:14:57:51 +0800|POST|PutData?Category=YunOsAccountOpLog|0.024|18204|200|37|-|aliyun-sdk-java" >> /home/test-log/delimiter.log
+```
+
+* 采集配置
 
 ```
 enable: true
@@ -62,4 +70,23 @@ flushers:
     LogstoreName: test_logstore
   - Type: flusher_stdout
     OnlyStdout: true
+```
+
+* 输出
+
+```
+{
+    "__tag__:__path__": "/home/test-log/delimiter.log",
+    "ip": "10.**.**.**",
+    "time": "10/Aug/2017:14:57:51 +0800",
+    "method": "POST",
+    "url": "PutData?Category=YunOsAccountOpLog",
+    "request_time": "0.024",
+    "request_length": "18204",
+    "status": "200",
+    "length": "37",
+    "ref_url": "-",
+    "browser": "aliyun-sdk-java",
+    "__time__": "1657361070"
+}
 ```
