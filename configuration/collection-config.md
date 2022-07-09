@@ -15,7 +15,7 @@
 enable: true
 inputs:
   - Type: file_log
-    LogPath: /home/test-dir/test_log
+    LogPath: /home/test-log
     FilePattern: reg.log
 processors:
   - Type: processor_regex
