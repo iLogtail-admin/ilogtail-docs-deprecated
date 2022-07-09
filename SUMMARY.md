@@ -22,12 +22,8 @@
 
 ## 概念
 
-* [关键概念](gai-nian/guan-jian-gai-nian.md)
-* [数据流水线](gai-nian/shu-ju-liu-shui-xian/README.md)
-  * [输入](gai-nian/shu-ju-liu-shui-xian/shu-ru.md)
-  * [处理](gai-nian/shu-ju-liu-shui-xian/chu-li.md)
-  * [聚合](gai-nian/shu-ju-liu-shui-xian/ju-he.md)
-  * [输出](gai-nian/shu-ju-liu-shui-xian/shu-chu.md)
+* [关键概念](concepts/key-concepts.md)
+* [数据流水线](concepts/data-pipeline.md)
 
 ## 配置 <a href="#configuration" id="configuration"></a>
 
@@ -53,16 +49,16 @@
 
 ## 工作原理
 
-* [文件发现](gong-zuo-yuan-li/wen-jian-fa-xian.md)
+* [文件发现](principle/file-discovery.md)
 
 ## 可观测性
 
-* [日志](ke-guan-ce-xing/ri-zhi.md)
+* [日志](observability/logs.md)
 
 ## 开发者指南
 
-* [CGO接口](kai-fa-zhe-zhi-nan/cgo-jie-kou.md)
-* [插件编写指南](kai-fa-zhe-zhi-nan/cha-jian-bian-xie-zhi-nan.md)
-* [测试](kai-fa-zhe-zhi-nan/ce-shi/README.md)
-  * [单元测试](kai-fa-zhe-zhi-nan/ce-shi/dan-yuan-ce-shi.md)
-  * [E2E测试](kai-fa-zhe-zhi-nan/ce-shi/e2e-ce-shi.md)
+* [CGO接口](developer-guide/cgo-interface.md)
+* [插件编写指南](developer-guide/plugin-guide.md)
+* [测试](developer-guide/test/README.md)
+  * [单元测试](developer-guide/test/unit-test.md)
+  * [E2E测试](developer-guide/test/e2e.md)
