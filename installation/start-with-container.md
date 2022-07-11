@@ -2,7 +2,7 @@
 
 ## 使用前提
 
-已安装[docker](https://docs.docker.com/engine/install/)。
+已安装[docker](https://docs.docker.com/engine/install/)
 
 ## 采集容器日志
 
@@ -22,7 +22,7 @@ docker run -d --name docker_ilogtail \
   -v /var/run:/var/run \
   -v /var/lib/docker_ilogtail/checkpoint:/usr/local/ilogtail/checkpoint \
   -v `pwd`/example_config/start_with_container/user_yaml_config.d:/usr/local/ilogtail/user_yaml_config.d \
-  aliyun/ilogtail:latest
+  sls-opensource-registry.cn-shanghai.cr.aliyuncs.com/ilogtail-community-edition/ilogtail:1.1.0
 ```
 
 第2行将主机/目录挂载到iLogtail容器中，iLogtail依赖`logtail_host`路径采集容器日志。\
