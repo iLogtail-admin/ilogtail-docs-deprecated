@@ -1,6 +1,6 @@
 # 开源协议
 
-iLogtail，包括内核、插件和工具均遵循[Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0)分发。&#x20;
+iLogtail，包括内核、插件和工具均遵循[Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0)分发。
 
 ```
                                  Apache License
