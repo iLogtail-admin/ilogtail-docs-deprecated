@@ -1,10 +1,10 @@
 # 什么是iLogtail
 
+![](.gitbook/assets/image.png)
+
 iLogtail 为可观测场景而生，拥有的轻量级、高性能、自动化配置等诸多生产级别特性，在阿里巴巴以及外部数万家阿里云客户内部广泛应用。你可以将它部署于物理机，虚拟机，Kubernetes等多种环境中来采集遥测数据，例如logs、traces和metrics。
 
 [![GitHub stars](https://camo.githubusercontent.com/674a26318ece2d770231086a733bebdbb174c15721f03714f5b79930574a800a/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f616c69626162612f696c6f677461696c)](https://github.com/alibaba/ilogtail/stargazers) [![GitHub issues](https://camo.githubusercontent.com/4266ec67b48f666bc0d440f9d1399e4b56ffc4eca3af3764e062731be83b2873/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6973737565732f616c69626162612f696c6f677461696c)](https://github.com/alibaba/ilogtail/issues) [![GitHub license](https://camo.githubusercontent.com/608afe55a7ca2ed062304f89208d3b929fddcbde8923cd09ef40edb2d2c3bf76/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f616c69626162612f696c6f677461696c)](https://github.com/alibaba/ilogtail/blob/main/LICENSE)
-
-
 
 ## 核心优势
 
