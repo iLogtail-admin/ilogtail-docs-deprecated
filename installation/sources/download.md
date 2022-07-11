@@ -18,4 +18,4 @@ git clone https://github.com/alibaba/ilogtail
 
 注意，main分支是iLogtail的开发分支。因此，存在无法编译或者运行时出错的可能。
 
-我们欢迎更多开发者参与测试或者开发，您的贡献最终会合入稳定版本中。
+我们欢迎更多开发者参与测试或者开发，您的贡献将使iLogtail更加出色。

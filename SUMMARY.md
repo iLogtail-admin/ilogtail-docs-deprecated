@@ -18,7 +18,7 @@
 * [源代码](installation/sources/README.md)
   * [下载](installation/sources/download.md)
   * [编译](installation/sources/build.md)
-* [Docker](installation/docker.md)
+  * [Docker镜像](installation/sources/docker-image.md)
 
 ## 概念 <a href="#concepts" id="concepts"></a>
 
