@@ -27,7 +27,7 @@
 
 此外，如果`iLogtail`跟阿里云日志服务（SLS）有天然的集成优势，当使用SLS作为后端存储系统时，可以直接写入，不需要额外的再引入消息队列。
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/image (1) (1).png>)
 
 本文将会详细介绍如何使用`iLogtail`社区版将日志采集到`Kafka`中，从而帮助使用者构建日志采集系统。
 
@@ -192,4 +192,4 @@ GitHub[:](https://github.com/alibaba/ilogtail/blob/main/README-cn.md) [https://g
 
 钉钉群：iLogtail社区
 
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (3).png>)
