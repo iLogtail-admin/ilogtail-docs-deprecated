@@ -19,7 +19,7 @@
 
 ## 样例
 
-采集`/home/test-dir/test_log`路径下的`reg.log`文件，日志内容按照提取字段。
+采集`/home/test-log/`路径下的`reg.log`文件，日志内容按照提取字段。
 
 * 输入
 

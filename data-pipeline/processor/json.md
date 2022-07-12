@@ -20,7 +20,7 @@
 
 ## 样例
 
-采集`/home/test-log`路径下的`json.log`文件，并按照`Json`格式进行日志解析。
+采集`/home/test-log/`路径下的`json.log`文件，并按照`Json`格式进行日志解析。
 
 * 输入
 
