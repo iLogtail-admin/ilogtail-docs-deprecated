@@ -8,7 +8,7 @@
 
 日志作为可观测性建设中的重要一环，可以记录详细的访问请求以及错误信息，在业务分析、问题定位等方面往往会发挥很大的作用。一般开发场景下，当需要进行日志分析时，往往是直接在日志文件中进行grep搜索对应的关键字；但在大规模分布式生产环境下，此方法效率低下，常见解决思路是建立集中式日志收集系统，将所有节点上的日志统一收集、管理、分析。目前市面上比较主流的开源方案是基于ELK构建一套日志采集系统。
 
-![](https://intranetproxy.alipay.com/skylark/lark/0/2022/png/278995/1657586632770-3d38204e-a756-4b5f-b133-1c24259000b4.png)
+![](<../.gitbook/assets/image (6).png>)
 
 该架构中，`Filebeat`作为日志源的采集`Agent`部署在业务集群上进行原始日志采集，并采集到的日志发送到消息队列`Kafka`集群。之后，由`Logstash`从`Kafka`消费数据，并经过过滤、处理后，将标准化后的日志写入`Elasticsearch`集群进行存储。最后，由`Kibana`呈现给用户查询。
 
@@ -27,7 +27,7 @@
 
 此外，如果`iLogtail`跟阿里云日志服务（SLS）有天然的集成优势，当使用SLS作为后端存储系统时，可以直接写入，不需要额外的再引入消息队列。
 
-![](https://intranetproxy.alipay.com/skylark/lark/0/2022/png/278995/1657594547022-ddf036fc-c616-40a9-acf0-cddc0e9463f6.png)
+![](<../.gitbook/assets/image (1).png>)
 
 本文将会详细介绍如何使用`iLogtail`社区版将日志采集到`Kafka`中，从而帮助使用者构建日志采集系统。
 
@@ -37,7 +37,7 @@
 
 其中，`access.log`需要正则解析；`error.log`为单行文本打印。
 
-![](https://intranetproxy.alipay.com/skylark/lark/0/2022/png/278995/1657592466793-64cd8ff2-9865-4f3d-a466-6692c3706c66.png)
+![](<../.gitbook/assets/image (4).png>)
 
 ## 前提条件 <a href="#hvouy" id="hvouy"></a>
 
@@ -192,4 +192,4 @@ GitHub[:](https://github.com/alibaba/ilogtail/blob/main/README-cn.md) [https://g
 
 钉钉群：iLogtail社区
 
-![](https://intranetproxy.alipay.com/skylark/lark/0/2022/png/278995/1656547314518-9cb783f9-1427-4ba8-8031-11222b253ded.png)
+![](../.gitbook/assets/image.png)
