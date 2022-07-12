@@ -65,4 +65,4 @@
 
 ## 使用入门 <a href="#getting-started" id="getting-started"></a>
 
-* [如何将业务日志采集到Kafka](getting-started/ru-he-jiang-ye-wu-ri-zhi-cai-ji-dao-kafka.md)
+* [how-to-collect-to-kafka](getting-started/how-to-collect-to-kafka.md)
