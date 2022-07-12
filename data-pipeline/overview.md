@@ -4,7 +4,7 @@
 
 | 名称         | 提供方   | 贡献者                                                   | 简介   |
 | ---------- | ----- | ----------------------------------------------------- | ---- |
-| `file_log` | SLS官方 | [`messixukejia`](https://github.com/messixukejia)\`\` | 文本采集 |
+| `file_log` | SLS官方 | [`messixukejia`](https://github.com/messixukejia) | 文本采集 |
 |            |       |                                                       |      |
 |            |       |                                                       |      |
 |            |       |                                                       |      |

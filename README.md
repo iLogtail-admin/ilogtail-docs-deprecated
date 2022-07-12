@@ -1,6 +1,6 @@
 # 什么是iLogtail
 
-![](<.gitbook/assets/image (2).png>)
+![](<.gitbook/assets/ilogtail-icon.png>)
 
 iLogtail 为可观测场景而生，拥有的轻量级、高性能、自动化配置等诸多生产级别特性，在阿里巴巴以及外部数万家阿里云客户内部广泛应用。你可以将它部署于物理机，虚拟机，Kubernetes等多种环境中来采集遥测数据，例如logs、traces和metrics。
 
@@ -41,9 +41,10 @@ iLogtail 为可观测场景而生，拥有的轻量级、高性能、自动化�
 
 您可以通过[Github Issues](https://github.com/alibaba/ilogtail/issues) 报告bug、提出建议或参与讨论，或通过以下方式联系我们：
 
-* 钉钉：iLogtail社区
-* 微信：日志服务
+* 交流群请扫描
+
+![](.gitbook/assets/chatgroup.png)
+
+* 微信公众号：日志服务
 * 哔哩哔哩：[阿里云SLS](https://space.bilibili.com/630680534?from=search\&seid=2845737427240690794\&spm\_id\_from=333.337.0.0)
 * 知乎：[阿里云日志服务](https://www.zhihu.com/people/a-li-yun-ri-zhi-fu-wu)
-
-![](.gitbook/assets/sls-contact.png)

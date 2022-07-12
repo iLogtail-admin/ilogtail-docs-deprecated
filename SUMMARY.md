@@ -62,3 +62,7 @@
 * [测试](developer-guide/test/README.md)
   * [单元测试](developer-guide/test/unit.md)
   * [E2E测试](developer-guide/test/e2e.md)
+
+## 使用入门 <a href="#getting-started" id="getting-started"></a>
+
+* [如何将业务日志采集到Kafka](getting-started/how-to-collect-to-kafka.md)
