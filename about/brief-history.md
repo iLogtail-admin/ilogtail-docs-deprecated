@@ -2,7 +2,7 @@
 
 秉承着阿里人简单的特点，iLogtail的命名也非常简单，我们最开始期望的就是能够有一个统一去Tail日志的工具，所以就叫做Logtail，添加上“i”的原因主要当时使用了inotify的技术，能够让日志采集的延迟控制在毫秒级，因此最后叫做iLogtail。从2013年开始研发，iLogtail整个发展历程概括起来大致可以分为四个阶段，分别是飞天5K阶段、阿里集团阶段、云原生阶段和开源共建阶段。
 
-![](<../.gitbook/assets/image (1) (1) (1).png>)
+![](<../.gitbook/assets/ilogtail-history.png>)
 
 ### 飞天5K阶段 <a href="#4ever-bi-127" id="4ever-bi-127"></a>
 
