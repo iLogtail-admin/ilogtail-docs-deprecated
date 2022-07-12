@@ -186,10 +186,10 @@ $ echo -e '2022-07-12 10:00:00 ERROR This is a error!\n2022-07-12 10:00:00 ERROR
 
 iLogtail作为阿里云SLS提供的可观测数据采集器，可以运行在服务器、容器、K8s、嵌入式等多种环境，支持采集数百种可观测数据（日志、监控、Trace、事件等），已经有千万级的安装量。目前，iLogtail已正式开源，欢迎使用及参与共建。
 
-GitHub[:](https://github.com/alibaba/ilogtail/blob/main/README-cn.md) [https://github.com/alibaba/ilogtail](https://github.com/alibaba/ilogtail)
+* GitHub[:](https://github.com/alibaba/ilogtail/blob/main/README-cn.md) [https://github.com/alibaba/ilogtail](https://github.com/alibaba/ilogtail)
 
-官网：[https://help.aliyun.com/document\_detail/65018.html](https://help.aliyun.com/document\_detail/65018.html)
+* 官网：[https://help.aliyun.com/document\_detail/65018.html](https://help.aliyun.com/document\_detail/65018.html)
 
-交流群请扫描
+* 交流群请扫描
 
 ![](.gitbook/assets/chatgroup.png)
