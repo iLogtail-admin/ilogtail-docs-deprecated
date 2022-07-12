@@ -13,10 +13,15 @@ cd ilogtail-1.1.0
 2\. 复制示例配置
 
 ```
-cp -a example_config/quick_start/* .
+cp example_config/quick_start/ilogtail_config.json .
+cp -a example_config/quick_start/user_yaml_config.d/* user_yaml_config.d
 ```
 
-`user_yaml_config.d/file_simple.yaml`配置了采集simple.log文件并输出到标准输出。
+`ilogtail_config.json`是iLogtail的系统参数配置文件。
+
+`user_yaml_config.d`是iLogtail的采集配置文件目录。
+
+示例`user_yaml_config.d/file_simple.yaml`配置了采集simple.log文件并输出到标准输出。
 
 3\. 后台启动iLogtail
 
