@@ -33,8 +33,7 @@
 
 ## 场景 <a href="#qarop" id="qarop"></a>
 
-采集`/root/bin/input_data/access.log`、`/root/bin/input_data/error.log`，并将采集到的日志写入本地部署的kafka中。
-
+采集`/root/bin/input_data/access.log`、`/root/bin/input_data/error.log`，并将采集到的日志写入本地部署的kafka中。为此，我们将配置两个采集配置项。
 其中，`access.log`需要正则解析；`error.log`为单行文本打印。
 
 ![](<../.gitbook/assets/getting-started/collection-config.png>)
@@ -147,7 +146,7 @@ user_yaml_config.d/
 $ nohup ./ilogtail > stdout.log 2> stderr.log &
 ```
 
-### 验证 <a href="#ovijv" id="ovijv"></a>
+## 验证 <a href="#ovijv" id="ovijv"></a>
 
 * 访问日志验证
 
@@ -182,8 +181,7 @@ $ echo -e '2022-07-12 10:00:00 ERROR This is a error!\n2022-07-12 10:00:00 ERROR
 
 
 
-<center>关于iLogtail</center>
-
+## 关于iLogtail
 iLogtail作为阿里云SLS提供的可观测数据采集器，可以运行在服务器、容器、K8s、嵌入式等多种环境，支持采集数百种可观测数据（日志、监控、Trace、事件等），已经有千万级的安装量。目前，iLogtail已正式开源，欢迎使用及参与共建。
 
 * GitHub[:](https://github.com/alibaba/ilogtail/blob/main/README-cn.md) [https://github.com/alibaba/ilogtail](https://github.com/alibaba/ilogtail)
