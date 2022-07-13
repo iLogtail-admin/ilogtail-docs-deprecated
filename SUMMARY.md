@@ -36,6 +36,7 @@
 * [概览](data-pipeline/overview.md)
 * [输入](data-pipeline/input/README.md)
   * [文本日志](data-pipeline/input/file-log.md)
+  * [容器标准输出](data-pipeline/input/input-docker-stdout.md)
 * [处理](data-pipeline/processor/README.md)
   * [多行切分](data-pipeline/processor/split-log-regex.md)
   * [正则](data-pipeline/processor/regex.md)
