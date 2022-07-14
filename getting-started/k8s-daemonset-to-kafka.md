@@ -75,7 +75,7 @@ iLogtail支持使用容器标签、环境变量、K8s标签、Pod名称、命名
 
 ## 部署iLogtail采集业务日志到Kafka <a href="#tsshm" id="tsshm"></a>
 
-这部分将完成数据驱动应用架构的第一步，将日志统一采集写入Kafka。本章节涉及到的容器标准输出插件详细配置可移步[iLogtail用户手册](https://ilogtail.gitbook.io/ilogtail-docs/data-pipeline/input/input-docker-stdout)。
+这部分将完成数据驱动应用架构的第一步，将日志统一采集写入Kafka。本章节所使用的配置可在[GitHub](https://github.com/alibaba/ilogtail/blob/main/k8s_templates/ilogtail-daemonset-kafka.yaml)下载，容器标准输出插件详细配置可移步[iLogtail用户手册](https://ilogtail.gitbook.io/ilogtail-docs/data-pipeline/input/input-docker-stdout)。
 
 #### 前提条件 <a href="#sra69" id="sra69"></a>
 
