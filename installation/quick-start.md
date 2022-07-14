@@ -30,7 +30,9 @@ flushers:
 您也可以直接从下面的地址下载示例配置。
 
 ```bash
+cd user_yaml_config.d
 wget https://raw.githubusercontent.com/alibaba/ilogtail/main/example_config/quick_start/user_yaml_config.d/file_simple.yaml
+cd -
 ```
 
 3\. 后台启动iLogtail
@@ -51,4 +53,10 @@ echo 'Hello, iLogtail!' >> simple.log
 
 ```bash
 cat stdout.log
+```
+
+结果为
+
+```
+2022-07-15 00:20:29 {"__tag__:__path__":"./simple.log","content":"Hello, iLogtail!","__time__":"1657815627"}
 ```

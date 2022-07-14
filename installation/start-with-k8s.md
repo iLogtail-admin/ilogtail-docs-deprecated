@@ -265,5 +265,11 @@ kubectl exec nginx-<pod-id> -- curl localhost/hello/ilogtail
 6\. 查看采集到的测试容器标准输出日志
 
 ```bash
-kubectl logs ilogtail-<pod-id> -n ilogtail
+kubectl logs ilogtail-ds-<pod-id> -n ilogtail
+```
+
+结果为
+
+```
+2022-07-14 16:36:50 {"_time_":"2022-07-15T00:36:48.489153485+08:00","_source_":"stdout","_image_name_":"docker.io/library/nginx:latest","_container_name_":"nginx","_pod_name_":"nginx-76d49876c7-r892w","_namespace_":"default","_pod_uid_":"07f75a79-da69-40ac-ae2b-77a632929cc6","_container_ip_":"10.223.0.154","remote_addr":"::1","remote_user":"-","time_local":"14/Jul/2022:16:36:48","method":"GET","url":"/hello/ilogtail","protocol":"HTTP/1.1","status":"404","body_bytes_sent":"153","http_referer":"-","http_user_agent":"curl/7.74.0","http_x_forwarded_for":"-","__time__":"1657816609"}
 ```

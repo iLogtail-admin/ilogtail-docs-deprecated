@@ -40,8 +40,10 @@ flushers:
 您也可以直接从下面的地址下载示例配置。
 
 ```bash
+mkdir user_yaml_config.d && cd user_yaml_config.d
 wget https://raw.githubusercontent.com/alibaba/ilogtail/main/example_config/start_with_docker/user_yaml_config.d/file_simple.yaml
 wget https://raw.githubusercontent.com/alibaba/ilogtail/main/example_config/start_with_docker/user_yaml_config.d/stdout_simple.yaml
+cd -
 ```
 
 2\. 启动iLogtail容器，并挂载iLogtail配置目录
@@ -67,6 +69,18 @@ docker run -d --name docker_ilogtail \
 docker logs docker_ilogtail
 ```
 
+结果为
+
+```
+delay stop seconds:  0
+ilogtail started. pid: 10
+register fun v2 0xa34f3c 0xa34f86 0xa34fdc 0xa35576
+2022/07/14 16:23:17 DEBUG Now using Go's stdlib log package (via loggers/mappers/stdlib).
+load log config /usr/local/ilogtail/plugin_logger.xml
+recover stderr
+recover stdout
+```
+
 4\. 进入iLogtail容器
 
 ```bash
@@ -79,6 +93,14 @@ docker exec -it docker_ilogtail bash
 cat /usr/local/ilogtail/simple.stdout
 ```
 
+结果为
+
+```
+2022-07-14 16:23:20 {"content":"delay stop seconds:  0","_time_":"2022-07-14T16:23:17.704235928Z","_source_":"stdout","_image_name_":"sls-opensource-registry.cn-shanghai.cr.aliyuncs.com/ilogtail-community-edition/ilogtail:1.1.0","_container_name_":"docker_ilogtail","_container_ip_":"172.17.0.2","__time__":"1657815797"}
+2022-07-14 16:23:20 {"content":"ilogtail started. pid: 10","_time_":"2022-07-14T16:23:17.704404952Z","_source_":"stdout","_image_name_":"sls-opensource-registry.cn-shanghai.cr.aliyuncs.com/ilogtail-community-edition/ilogtail:1.1.0","_container_name_":"docker_ilogtail","_container_ip_":"172.17.0.2","__time__":"1657815797"}
+2022-07-14 16:23:20 {"content":"recover stdout","_time_":"2022-07-14T16:23:17.847939016Z","_source_":"stdout","_image_name_":"sls-opensource-registry.cn-shanghai.cr.aliyuncs.com/ilogtail-community-edition/ilogtail:1.1.0","_container_name_":"docker_ilogtail","_container_ip_":"172.17.0.2","__time__":"1657815797"}
+```
+
 6\. 构造示例日志
 
 ```bash
@@ -87,6 +109,14 @@ echo 'Hello, iLogtail!' >> /root/simple.log
 
 7\. 查看采集到的容器文件日志
 
+跳出容器，在宿主机上执行
+
 ```bash
 docker logs docker_ilogtail
+```
+
+结果相比第3步的结果，多了
+
+```
+2022-07-14 16:26:20 {"__tag__:__path__":"/root/simple.log","content":"Hello, iLogtail!","__time__":"1657815980"}
 ```
