@@ -11,7 +11,8 @@
 ## 安装 <a href="#installation" id="installation"></a>
 
 * [快速开始](installation/quick-start.md)
-* [容器使用](installation/start-with-container.md)
+* [Docker使用](installation/start-with-docker.md)
+* [Kubernetes使用](installation/start-with-k8s.md)
 * [使用Supervised管理](installation/supervised.md)
 * [发布记录](installation/release-notes.md)
 * [支持的操作系统](installation/os.md)

@@ -2,7 +2,7 @@
 
 ## 采集主机日志
 
-1\. 下载预编译的iLogtail包，解压后进入目录
+1\. 下载预编译的iLogtail包，解压后进入目录，该目录下文均称为部署目录。
 
 ```bash
 wget https://ilogtail-community-edition.oss-cn-shanghai.aliyuncs.com/1.1.0/ilogtail-1.1.0.linux-amd64.tar.gz
@@ -10,18 +10,28 @@ tar -xzvf ilogtail-1.1.0.linux-amd64.tar.gz
 cd ilogtail-1.1.0
 ```
 
-2\. 复制示例配置
+2\. 对iLogtail进行配置
 
+部署目录中`ilogtail_config.json`是iLogtail的系统参数配置文件。`user_yaml_config.d`是iLogtail的采集配置目录。
+
+这里我们在采集配置目录中创建`file_simple.yaml`文件，配置采集当前目录simple.log文件并输出到标准输出：
+
+```yaml
+enable: true
+inputs:
+  - Type: file_log          # 文件输入类型
+    LogPath: .              # 文件路径Glob匹配规则
+    FilePattern: simple.log # 文件名Glob匹配规则
+flushers:
+  - Type: flusher_stdout    # 标准输出流输出类型
+    OnlyStdout: true
 ```
-cp example_config/quick_start/ilogtail_config.json .
-cp -a example_config/quick_start/user_yaml_config.d/* user_yaml_config.d
+
+您也可以直接从下面的地址下载示例配置。
+
+```bash
+wget https://raw.githubusercontent.com/alibaba/ilogtail/main/example_config/quick_start/user_yaml_config.d/file_simple.yaml
 ```
-
-`ilogtail_config.json`是iLogtail的系统参数配置文件。
-
-`user_yaml_config.d`是iLogtail的采集配置文件目录。
-
-示例`user_yaml_config.d/file_simple.yaml`配置了采集simple.log文件并输出到标准输出。
 
 3\. 后台启动iLogtail
 
