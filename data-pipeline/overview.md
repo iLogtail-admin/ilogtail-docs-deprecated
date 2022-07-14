@@ -15,10 +15,11 @@
 
 | 名称                          | 提供方   | 贡献者 | 简介                    |
 | --------------------------- | ----- | --- | --------------------- |
-| `processor_split_log_regex` | SLS官方 | -   | 实现多行日志（例如Java程序日志）的采集 |
-| `processor_regex`           | SLS官方 | -   | 通过正则匹配的模式实现文本日志的字段提取。 |
+| `processor_default`         | SLS官方 | -   | 不做处理，采集原始数据。        |
 | `processor_json`            | SLS官方 | -   | 实现对Json格式日志的解析。       |
+| `processor_regex`           | SLS官方 | -   | 通过正则匹配的模式实现文本日志的字段提取。 |
 | `processor_split_char`      | SLS官方 | -   | 通过单字符的分隔符提取字段。        |
+| `processor_split_log_regex` | SLS官方 | -   | 实现多行日志（例如Java程序日志）的采集 |
 | `processor_split_string`    | SLS官方 | -   | 通过多字符的分隔符提取字段。        |
 
 ## 聚合

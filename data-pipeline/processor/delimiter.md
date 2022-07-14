@@ -49,7 +49,6 @@ echo "127.0.0.1|10/Aug/2017:14:57:51 +0800|POST|PutData?Category=YunOsAccountOpL
 
 * 采集配置
 
-````
 ```
 enable: true
 inputs:
