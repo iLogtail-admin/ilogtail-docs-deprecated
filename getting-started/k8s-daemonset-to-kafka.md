@@ -8,7 +8,7 @@
 
 日志对于构建数据驱动的应用架构至关重要。在Kubernetes分布式的容器环境中，各个业务容器的日志四处散落，用户往往希望拥有一个中心化的日志管理方案，以使不同应用、格式各异的相关日志能够一起进行处理分析。K8s已经为此提供了必备的基础资源和设施。本文将简要介绍K8s的日志架构并演示如何通过iLogtail统一采集日志。
 
-![数据驱动的应用架构](<../.gitbook/assets/image (2).png>)
+![数据驱动的应用架构](<../.gitbook/assets/k8s-data-driven.png>)
 
 K8s官方推荐的日志架构为将应用的日志输出到标准输出流(stdout)或标准错误流(stderr)，然后由Docker或Containerd+Kubelet对日志输出进行重定向存储管理。Kubernetes提供了kubectl logs命令供用户查询日志，该命令同时可接受-p/--previous参数查询最近一个退出的容器实例日志，该参数在排查崩溃或重启的容器时尤其有用。
 
@@ -28,7 +28,7 @@ K8s官方推荐的日志架构为将应用的日志输出到标准输出流(stdo
 
 在这种方式下，日志采集Agent通常以一个能访问节点上所有日志的容器存在。通常生产集群有很多节点，每个节点都需要部署一个采集Agent。面对这种情况，最简单的部署方式是直接只用K8s提供的Deployment进行容器编排。DaemonSet controller会定期检查节点的变化情况，并自动保证每个节点上有且只有一个采集Agent容器。
 
-![图片源：https://kubernetes.io/docs/concepts/cluster-administration/logging/](../.gitbook/assets/image.png)
+![图片源：https://kubernetes.io/docs/concepts/cluster-administration/logging/](../.gitbook/assets/daemonset-logging-arch.png)
 
 使用DaemonSet方式采集K8s日志有以下优点，通常是首选被广泛使用：
 
@@ -48,7 +48,7 @@ K8s官方推荐的日志架构为将应用的日志输出到标准输出流(stdo
 
 iLogtail支持全场景的容器数据采集，包括Docker和K8s环境。iLogtail通过[docker\_center插件](https://github.com/alibaba/ilogtail/blob/main/helper/docker\_center.go)与节点上的容器运行时进行通信，发现节点的容器列表并维护容器和日志采集路径映射。然后，对于容器标准输出，iLogtail使用[input\_docker\_stdout插件](https://github.com/alibaba/ilogtail/blob/main/plugins/input/docker/stdout/input\_docker\_stdout.go)对日志进行采集，包括容器筛选和多行切分等步骤；对于容器文件则使用[input\_docker\_event插件](https://github.com/alibaba/ilogtail/blob/main/plugins/input/docker/event/input\_docker\_event.go)结合C++内核实现，前者负责容器筛选，后者提供高效的文件发现、采集能力。iLogtail支持DaemonSet、Sidecar、CRD等多种部署方式，为应对不同使用场景提供了灵活的部署能力。而iLogtail采用全局容器列表和通过Kubernetes CRI协议获取容器信息的设计，使其在权限和组件依赖上相比其他开源更加轻量级，并且拥有更高的采集效率。
 
-![iLogtail采集K8s容器日志](<../.gitbook/assets/image (1).png>)
+![iLogtail采集K8s容器日志](<../.gitbook/assets/ilogtail-k8s-daemonset.png>)
 
 iLogtail支持使用容器标签、环境变量、K8s标签、Pod名称、命名空间等多种方式进行容器筛选，为容器日志采集提供了极强的灵活性。
 
