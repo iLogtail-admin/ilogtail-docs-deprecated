@@ -11,7 +11,8 @@
 ## 安装 <a href="#installation" id="installation"></a>
 
 * [快速开始](installation/quick-start.md)
-* [容器使用](installation/start-with-container.md)
+* [Docker使用](installation/start-with-container.md)
+* [Kubernetes使用](installation/start-with-k8s.md)
 * [使用Supervised管理](installation/supervised.md)
 * [发布记录](installation/release-notes.md)
 * [支持的操作系统](installation/os.md)
@@ -67,3 +68,4 @@
 ## 使用入门 <a href="#getting-started" id="getting-started"></a>
 
 * [如何将业务日志采集到Kafka](getting-started/how-to-collect-to-kafka.md)
+* [使用DaemonSet模式采集K8s容器日志](getting-started/k8s-daemonset-to-kafka.md)
