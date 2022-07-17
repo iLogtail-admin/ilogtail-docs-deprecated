@@ -4,6 +4,8 @@
 
 `flusher_sls` `flusher`插件可以实现将采集到的数据，经过处理后，发送到SLS。
 
+备注：采集到SLS时，需要对`iLogtail`进行[AK、SK配置](../../configuration/system-config.md)。
+
 ## 配置参数
 
 | 参数              | 类型      | 是否必选 | 说明                                                              |
