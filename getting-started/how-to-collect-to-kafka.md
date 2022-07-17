@@ -21,24 +21,22 @@
 * 使用`Filebeat`作为日志源的采集Agent。
   * `Filebeat`是一个轻量级的日志传输工具，作为采集端Agent，可以有效弥补`Logstash`的缺点（例如，依赖`java`、数据量大时资源消耗过多）。
 
-
-
 虽然引入了`Filebeat`作为日志源的采集`Agent`，可以有效提升端上的采集效率及资源占用情况，但是超大流量场景下`Filebeat`依然会有些力不从心。此外，容器场景下Filebeat支持也不是很好。而iLogtail作为阿里云日志服务（SLS）团队自研的可观测数据采集`Agent`，在[日志采集性能](https://github.com/alibaba/ilogtail/blob/main/docs/zh/performance/Performance-compare-with-filebeat.md)及[K8s](https://developer.aliyun.com/article/806369)支持上都有不错的体验，因此我们可以将`iLogtail`引入到日志采集系统的架构中。由于`iLogtail`有明显的性能优势，且具有极强的数据处理能力，因此可以将`Logstash`所承载的日志处理前置到`iLogtail`来进行，这样可以有效降低用户的存储成本。
 
 此外，如果`iLogtail`跟阿里云日志服务（SLS）有天然的集成优势，当使用SLS作为后端存储系统时，可以直接写入，不需要额外的再引入消息队列。
 
 ![](<../.gitbook/assets/getting-started/collect-to-kafka/ilogtail-arch.png>)
 
+## 操作实战
 本文将会详细介绍如何使用`iLogtail`社区版将日志采集到`Kafka`中，从而帮助使用者构建日志采集系统。
-
-## 场景 <a href="#qarop" id="qarop"></a>
+### 场景 <a href="#qarop" id="qarop"></a>
 
 采集`/root/bin/input_data/access.log`、`/root/bin/input_data/error.log`，并将采集到的日志写入本地部署的kafka中。为此，我们将配置两个采集配置项。
 其中，`access.log`需要正则解析；`error.log`为单行文本打印。
 
 ![](<../.gitbook/assets/getting-started/collect-to-kafka/collection-config.png>)
 
-## 前提条件 <a href="#hvouy" id="hvouy"></a>
+### 前提条件 <a href="#hvouy" id="hvouy"></a>
 
 * 安装
 
@@ -66,7 +64,7 @@ bin/kafka-topics.sh --create --topic error-log --bootstrap-server localhost:9092
 
 * 更多部署说明，详见[链接](https://kafka.apache.org/quickstart)。
 
-## 安装ilogtail <a href="#gee97" id="gee97"></a>
+### 安装ilogtail <a href="#gee97" id="gee97"></a>
 
 * 下载
 
@@ -148,7 +146,7 @@ user_yaml_config.d/
 $ nohup ./ilogtail > stdout.log 2> stderr.log &
 ```
 
-## 验证 <a href="#ovijv" id="ovijv"></a>
+### 验证 <a href="#ovijv" id="ovijv"></a>
 
 * 访问日志验证
 
