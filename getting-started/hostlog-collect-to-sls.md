@@ -7,6 +7,7 @@
 
 阿里云提供的SLS服务是一个纯定位在日志/时序类可观测数据分析场景的云上托管服务，相对于ELK在日志领域内做了很多定制化开发，在易用性、功能完备性、性能、成本等方便，都有不错表现。`iLogtail`作为SLS官方标配的可观测数据采集器，在[日志采集性能](https://github.com/alibaba/ilogtail/blob/main/docs/zh/performance/Performance-compare-with-filebeat.md)及[K8s](https://developer.aliyun.com/article/806369)支持上都有不错的体验；`iLogtail`有明显的性能优势，可以将部分数据处理前置，有效降低存储成本。
 ![](<../.gitbook/assets/getting-started/collect-to-sls/sls-collect-arch.png>)
+
 目前**社区版**`iLogtail`也对SLS提供了很好的支持，本文将会详细介绍如何使用**社区版**`iLogtail`，并结合SLS云服务快速构建出一套高可用、高性能的日志采集分析系统。
 
 备注：`iLogtail`**社区版**相对于`iLogtail`企业版，核心采集能力上基本是一致的，但是管控、可观测能力上会有所弱化，这些能力需要配合SLS服务端才能发挥出来。欢迎使用[iLogtail企业版](https://help.aliyun.com/document_detail/95923.html)体验，两个版本差异详见[链接](https://ilogtail.gitbook.io/ilogtail-docs/about/compare-editions)。
