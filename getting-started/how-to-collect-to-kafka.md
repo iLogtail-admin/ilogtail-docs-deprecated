@@ -133,7 +133,9 @@ flushers:
     Brokers:
       - localhost:9092
     Topic: error-log
-    
+```
+
+```
 $ tree user_yaml_config.d/
 user_yaml_config.d/
 ├── access_log.yaml
