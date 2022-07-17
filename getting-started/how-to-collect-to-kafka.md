@@ -8,7 +8,7 @@
 
 日志作为可观测性建设中的重要一环，可以记录详细的访问请求以及错误信息，在业务分析、问题定位等方面往往会发挥很大的作用。一般开发场景下，当需要进行日志分析时，往往是直接在日志文件中进行grep搜索对应的关键字；但在大规模分布式生产环境下，此方法效率低下，常见解决思路是建立集中式日志收集系统，将所有节点上的日志统一收集、管理、分析。目前市面上比较主流的开源方案是基于ELK构建一套日志采集系统。
 
-![](<../.gitbook/assets/getting-started/elk-arch.png>)
+![](<../.gitbook/assets/getting-started/collect-to-kafka/elk-arch.png>)
 
 该架构中，`Filebeat`作为日志源的采集`Agent`部署在业务集群上进行原始日志采集，并采集到的日志发送到消息队列`Kafka`集群。之后，由`Logstash`从`Kafka`消费数据，并经过过滤、处理后，将标准化后的日志写入`Elasticsearch`集群进行存储。最后，由`Kibana`呈现给用户查询。
 
@@ -27,7 +27,7 @@
 
 此外，如果`iLogtail`跟阿里云日志服务（SLS）有天然的集成优势，当使用SLS作为后端存储系统时，可以直接写入，不需要额外的再引入消息队列。
 
-![](<../.gitbook/assets/getting-started/ilogtail-arch.png>)
+![](<../.gitbook/assets/getting-started/collect-to-kafka/ilogtail-arch.png>)
 
 本文将会详细介绍如何使用`iLogtail`社区版将日志采集到`Kafka`中，从而帮助使用者构建日志采集系统。
 
@@ -36,7 +36,7 @@
 采集`/root/bin/input_data/access.log`、`/root/bin/input_data/error.log`，并将采集到的日志写入本地部署的kafka中。为此，我们将配置两个采集配置项。
 其中，`access.log`需要正则解析；`error.log`为单行文本打印。
 
-![](<../.gitbook/assets/getting-started/collection-config.png>)
+![](<../.gitbook/assets/getting-started/collect-to-kafka/collection-config.png>)
 
 ## 前提条件 <a href="#hvouy" id="hvouy"></a>
 
@@ -151,8 +151,8 @@ $ nohup ./ilogtail > stdout.log 2> stderr.log &
 * 访问日志验证
 
 ```
-# 终端1: 启动kafka-console-consumer，消费error-log
-$ bin/kafka-console-consumer.sh --topic error-log --from-beginning --bootstrap-server localhost:9092
+# 终端1: 启动kafka-console-consumer，消费access-log
+$ bin/kafka-console-consumer.sh --topic access-log --from-beginning --bootstrap-server localhost:9092
 
 # 终端2: 写入访问日志
 $ echo '127.0.0.1 - - [10/Aug/2017:14:57:51 +0800] "POST /PutData?Category=YunOsAccountOpLog HTTP/1.1" 0.024 18204 200 37 "-" "aliyun-sdk-java"' >> /root/bin/input_data/access.log
@@ -186,7 +186,7 @@ iLogtail作为阿里云SLS提供的可观测数据采集器，可以运行在服
 
 * GitHub[:](https://github.com/alibaba/ilogtail/blob/main/README-cn.md) [https://github.com/alibaba/ilogtail](https://github.com/alibaba/ilogtail)
 
-* 官网：[https://help.aliyun.com/document\_detail/65018.html](https://help.aliyun.com/document\_detail/65018.html)
+* 社区版版本文档：[https://ilogtail.gitbook.io/ilogtail-docs/about/readme](https://ilogtail.gitbook.io/ilogtail-docs/about/readme)
 
 * 交流群请扫描
 
