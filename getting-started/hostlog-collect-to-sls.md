@@ -7,6 +7,7 @@
 该架构中，`Filebeat`作为日志源的采集`Agent`部署在业务集群上进行原始日志采集，并采集到的日志发送到消息队列`Kafka`集群。之后，由`Logstash`从`Kafka`消费数据，并经过过滤、处理后，将标准化后的日志写入`Elasticsearch`集群进行存储。最后，由`Kibana`呈现给用户查询。虽然该架构可以提供比较完整的日志采集、分析功能，但是整体涉及的组件非常多，大规模生产环境部署复杂度高，且大流量下ES可能不稳定，运维成本都会很高。
 
 阿里云提供的SLS服务是一个纯定位在日志/时序类可观测数据分析场景的云上托管服务，相对于ELK在日志领域内做了很多定制化开发，在易用性、功能完备性、性能、成本等方便，都有不错表现。`iLogtail`作为SLS官方标配的可观测数据采集器，在[日志采集性能](https://github.com/alibaba/ilogtail/blob/main/docs/zh/performance/Performance-compare-with-filebeat.md)及[K8s](https://developer.aliyun.com/article/806369)支持上都有不错的体验；`iLogtail`有明显的性能优势，可以将部分数据处理前置，有效降低存储成本。
+
 ![](<../.gitbook/assets/getting-started/collect-to-sls/sls-collect-arch.png>)
 
 目前**社区版**`iLogtail`也对SLS提供了很好的支持，本文将会详细介绍如何使用**社区版**`iLogtail`，并结合SLS云服务快速构建出一套高可用、高性能的日志采集分析系统。
@@ -38,7 +39,9 @@
 采集`/root/bin/input_data/access.log`、`/root/bin/input_data/error.log`，并将采集到的日志写入SLS中。
 其中，`access.log`需要正则解析；`error.log`为单行文本打印。
 如果之前已经使用`iLogtail`将日志采集到`Kafka`，在迁移阶段可以保持双写，等稳定后删除`Kafka Flusher`配置即可。
+
 ![](<../.gitbook/assets/getting-started/collect-to-sls/collect-to-sls-and-kafka.png>)
+
 ## 前提条件
 
 - 登陆阿里云SLS控制台，[开通SLS服务](https://help.aliyun.com/document_detail/54604.html#section-j4p-xt3-arc)。
@@ -49,7 +52,9 @@
 - 开启[全文索引](https://help.aliyun.com/document_detail/90732.html)。
 - 进入Project首页，查看[访问域名](https://help.aliyun.com/document_detail/29008.html?spm=5176.2020520112.help.dexternal.5d8b34c0QXLYgp)。
 
-![](<../.gitbook/assets/getting-started/collect-to-sls/endpoint.png>)## 安装iLogtail
+![](<../.gitbook/assets/getting-started/collect-to-sls/endpoint.png>)
+
+## 安装iLogtail
 
 - 下载
 ```shell
@@ -151,12 +156,15 @@ $ nohup ./ilogtail > stdout.log 2> stderr.log &
 $ echo '127.0.0.1 - - [10/Aug/2017:14:57:51 +0800] "POST /PutData?Category=YunOsAccountOpLog HTTP/1.1" 0.024 18204 200 37 "-" "aliyun-sdk-java"' >> /root/bin/input_data/access.log
 ```
 ![](<../.gitbook/assets/getting-started/collect-to-sls/sls-access-log.png>)
+
 - 错误日志验证，查看logstore数据正常。
 ```shell
 # 写入错误日志
 $ echo -e '2022-07-12 10:00:00 ERROR This is a error!\n2022-07-12 10:00:00 ERROR This is a new error!' >> /root/bin/input_data/error.log
 ```
+
 ![](<../.gitbook/assets/getting-started/collect-to-sls/sls-error-log.png>)
+
 # 总结
 以上，我们介绍了使用iLogtail社区版将日志采集到SLS的方法。如果想体验企业版iLogtail与SLS更深度的集成能力，欢迎使用iLogtail企业版，并配合SLS构建可观测平台。
 
