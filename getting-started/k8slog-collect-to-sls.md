@@ -50,7 +50,7 @@
 
 如果之前已经使用`iLogtail`将日志采集到`Kafka`，在迁移阶段可以保持双写，等稳定后删除`Kafka Flusher`配置即可。
 
-![](<../.gitbook/assets/image (1).png>)
+![](<../.gitbook/assets/getting-started/k8slog-collect-to-sls/collection-config.png>)
 
 ### 前提条件
 
@@ -337,13 +337,13 @@ kubectl exec nginx-76d49876c7-r892w -- curl localhost/hello/ilogtail
 
 SLS控制台查询结果
 
-![](../.gitbook/assets/image.png)
+![](../.gitbook/assets/getting-started/k8slog-collect-to-sls/sls-access-log.png)
 
 * 错误日志验证，查看logstore数据正常。
 
 SLS控制台查询结果
 
-![](<../.gitbook/assets/image (2).png>)
+![](<../.gitbook/assets/getting-started/k8slog-collect-to-sls/sls-error-log.png>)
 
 ## 总结 <a href="#ovoc3" id="ovoc3"></a>
 
