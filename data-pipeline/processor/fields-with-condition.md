@@ -1,7 +1,20 @@
-# 条件字段
+# 条件字段处理
 
 ## 简介
-使用`processor_fields_with_condition`插件匹配多个条件，如果其中一个条件得到满足，就会执行相应的行动。
+`processor_fields_with_condition`插件支持根据日志部分字段的取值，动态进行字段扩展或删除。
+
+### 条件判断
+* 支持多字段取值比较。
+* 关系运算符：equals（默认）、regexp、contains、startwith。
+* 逻辑运算符：and（默认）、or。
+
+### 过滤能力
+* 默认仅做字段动态处理。
+* 可以开启过滤功能，未命中任意条件则丢弃。
+
+### 处理能力
+* 与现有插件processor_add_fields、processor_drop保持近似的使用习惯。
+* 可以支持多组条件（Case）进行动态字段处理，但是按顺序匹配上一条后即退出。
 
 ## 配置参数
 
@@ -48,11 +61,11 @@ inputs:
 processors:
   - Type: processor_fields_with_condition
     SourceKey: content
-    DropIfNotMatchCondition: true
+    DropIfNotMatchCondition: true // 可选，case条件都不满足时，该条日志是丢弃（true）还是保留（false）。
     Switch:
       - Case:
-          LogicalOperator: and
-          RelationOperator: regexp
+          LogicalOperator: and // 可选，"and"(默认), "or"。
+          RelationOperator: regexp // 可选，"equals"(默认), "regexp", "contains", "startwith"。
           FieldConditions:
             key1: "^value1.*"
             key2: "value1"
