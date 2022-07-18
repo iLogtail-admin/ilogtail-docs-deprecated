@@ -20,7 +20,7 @@
   * [下载](installation/sources/download.md)
   * [编译](installation/sources/build.md)
   * [Docker镜像](installation/sources/docker-image.md)
-* [镜像站](installation/jing-xiang-zhan.md)
+* [镜像站](installation/mirrors.md)
 
 ## 概念 <a href="#concepts" id="concepts"></a>
 
