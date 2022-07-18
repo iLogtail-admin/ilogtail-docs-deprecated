@@ -69,9 +69,9 @@ bin/kafka-topics.sh --create --topic error-log --bootstrap-server localhost:9092
 * 下载
 
 ```
-$ wget https://ilogtail-community-edition.oss-cn-shanghai.aliyuncs.com/1.1.0/ilogtail-1.1.0.linux-amd64.tar.gz
-tar -xzvf ilogtail-1.1.0.linux-amd64.tar.gz
-$ cd ilogtail-1.1.0
+$ wget https://ilogtail-community-edition.oss-cn-shanghai.aliyuncs.com/latest/ilogtail-latest.linux-amd64.tar.gz
+tar -xzvf ilogtail-latest.linux-amd64.tar.gz
+$ cd ilogtail-<version>
 
 $ ll
 drwxrwxr-x 5 505 505      4096 7月  10 18:00 example_config
@@ -184,9 +184,9 @@ $ echo -e '2022-07-12 10:00:00 ERROR This is a error!\n2022-07-12 10:00:00 ERROR
 ## 关于iLogtail
 iLogtail作为阿里云SLS提供的可观测数据采集器，可以运行在服务器、容器、K8s、嵌入式等多种环境，支持采集数百种可观测数据（日志、监控、Trace、事件等），已经有千万级的安装量。目前，iLogtail已正式开源，欢迎使用及参与共建。
 
-* GitHub[:](https://github.com/alibaba/ilogtail/blob/main/README-cn.md) [https://github.com/alibaba/ilogtail](https://github.com/alibaba/ilogtail)
+* GitHub：[https://github.com/alibaba/ilogtail](https://github.com/alibaba/ilogtail)
 
-* 社区版版本文档：[https://ilogtail.gitbook.io/ilogtail-docs/about/readme](https://ilogtail.gitbook.io/ilogtail-docs/about/readme)
+* 社区版文档：[https://ilogtail.gitbook.io/ilogtail-docs/about/readme](https://ilogtail.gitbook.io/ilogtail-docs/about/readme)
 
 * 交流群请扫描
 

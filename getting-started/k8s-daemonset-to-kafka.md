@@ -213,7 +213,7 @@ spec:
             type: Directory
           name: root
         - hostPath:
-            path: /etc/ilogtail-ilogtail-ds/checkpoint
+            path: /lib/var/ilogtail-ilogtail-ds/checkpoint
             type: DirectoryOrCreate
           name: checkpoint
         - configMap:
@@ -274,7 +274,7 @@ spec:
           resources:
             requests:
               cpu: 100m
-              memory: 100Miy
+              memory: 100Mi
 ```
 
 ```bash
@@ -386,9 +386,9 @@ kubectl exec -n ilogtail ilogtail-ds-krm8t -- /bin/sh -c "kill 1"
 
 ## **关于iLogtail**
 
-* GitHub[:](https://github.com/alibaba/ilogtail/blob/main/README-cn.md) [https://github.com/alibaba/ilogtail](https://github.com/alibaba/ilogtail)
+* GitHub：[https://github.com/alibaba/ilogtail](https://github.com/alibaba/ilogtail)
 
-* 社区版版本文档：[https://ilogtail.gitbook.io/ilogtail-docs/about/readme](https://ilogtail.gitbook.io/ilogtail-docs/about/readme)
+* 社区版文档：[https://ilogtail.gitbook.io/ilogtail-docs/about/readme](https://ilogtail.gitbook.io/ilogtail-docs/about/readme)
 
 * 交流群请扫描
 
