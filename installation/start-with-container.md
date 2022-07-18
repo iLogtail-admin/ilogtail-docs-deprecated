@@ -54,7 +54,7 @@ docker run -d --name docker_ilogtail \
   -v /var/run:/var/run \
   -v /var/lib/docker_ilogtail/checkpoint:/usr/local/ilogtail/checkpoint \
   -v `pwd`/user_yaml_config.d:/usr/local/ilogtail/user_yaml_config.d \
-  sls-opensource-registry.cn-shanghai.cr.aliyuncs.com/ilogtail-community-edition/ilogtail:1.1.0
+  sls-opensource-registry.cn-shanghai.cr.aliyuncs.com/ilogtail-community-edition/ilogtail:latest
 ```
 
 第1行-d参数表示后台启动iLogtail容器，--name指定容器名称以便引用。\

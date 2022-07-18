@@ -5,9 +5,9 @@
 1\. 下载预编译的iLogtail包，解压后进入目录，该目录下文均称为部署目录。
 
 ```bash
-wget https://ilogtail-community-edition.oss-cn-shanghai.aliyuncs.com/1.1.0/ilogtail-1.1.0.linux-amd64.tar.gz
-tar -xzvf ilogtail-1.1.0.linux-amd64.tar.gz
-cd ilogtail-1.1.0
+wget https://ilogtail-community-edition.oss-cn-shanghai.aliyuncs.com/latest/ilogtail-latest.linux-amd64.tar.gz
+tar -xzvf ilogtail-latest.linux-amd64.tar.gz
+cd ilogtail-<version>
 ```
 
 2\. 对iLogtail进行配置

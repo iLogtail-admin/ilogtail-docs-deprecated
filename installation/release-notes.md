@@ -1,16 +1,24 @@
-# 发布记录
+# 发布历史
 
-## [1.1.0](https://github.com/alibaba/ilogtail/blob/main/changes/v1.1.0.md)
+## 1.1.0
+### 发布记录
+发版日期：2022 年 6 月 29 日
 
-### Download
+新功能
+* 开源C++核心模块代码
+* netping插件支持httping和DNS解析耗时。
 
-| Filename                                                                                                                                     | OS    | Arch   | SHA256 Checksum                                                  |
-| -------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------ | ---------------------------------------------------------------- |
+[详情和源代码](https://github.com/alibaba/ilogtail/blob/main/changes/v1.1.0.md)
+
+### 下载
+
+| 文件名                          | 系统    | 架构   | SHA256 校验码 |
+| --------------------------------- | ----- | ------ | ---------------------------------------------------------------- |
 | [ilogtail-1.1.0.linux-amd64.tar.gz](https://ilogtail-community-edition.oss-cn-shanghai.aliyuncs.com/1.1.0/ilogtail-1.1.0.linux-amd64.tar.gz) | Linux | x86-64 | 2f4eadd92debe17aded998d09b6631db595f5f5aec9c8ed6001270b1932cad7d |
 
-### Docker Image
+### Docker 镜像
 
-**Docker Pull Command**
+**Docker Pull 命令**
 
 ```
 docker pull sls-opensource-registry.cn-shanghai.cr.aliyuncs.com/ilogtail-community-edition/ilogtail:1.1.0
