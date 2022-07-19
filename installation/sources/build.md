@@ -27,7 +27,7 @@ iLogtail依赖了诸多第三方库（详见附录），为了简化编译流程
 2\. 创建编译容器，并挂载代码目录。
 
 ```bash
-docker run --name ilogtail-build -d
+docker run --name ilogtail-build -d \
   -v `pwd`:/src -w /src \
   sls-registry.cn-beijing.cr.aliyuncs.com/sls-microservices/ilogtail-build-linux-amd64:latest \
   bash -c "sleep infinity"
@@ -78,7 +78,7 @@ cmake -DBUILD_LOGTAIL_UT=ON ..
 
 ```
 cd /src
-./scripts/plugin_build.sh vendor c-shared
+./scripts/plugin_build.sh vendor c-shared output
 ```
 
 2\. 编译产出
