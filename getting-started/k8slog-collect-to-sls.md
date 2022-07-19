@@ -50,7 +50,7 @@
 
 如果之前已经使用`iLogtail`将日志采集到`Kafka`，在迁移阶段可以保持双写，等稳定后删除`Kafka Flusher`配置即可。
 
-![](<../.gitbook/assets/getting-started/k8slog-collect-to-sls/collection-config.png>)
+![](<../.gitbook/assets/getting-started/k8slog-collect-to-sls/collection-config.jpg>)
 
 ### 前提条件
 
