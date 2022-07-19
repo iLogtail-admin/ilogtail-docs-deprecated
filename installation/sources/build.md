@@ -45,7 +45,7 @@ docker exec -it ilogtail-build bash
 mkdir -p /src/core/build
 cd /src/core/build
 cmake ..
-make -sj${nproc}
+make -sj$(nproc)
 ```
 
 需要编译UT的话，可以打开开关。替换上述第2行为
@@ -83,33 +83,33 @@ cd /src
 
 2\. 编译产出
 
-编译产出在容器的`/src/bin`目录下。
+编译产出在容器的`/src/output`目录下。
 
-`/src/bin`目录的结构如下
+`/src/output`目录的结构如下
 
 ```
-/src/bin
+/src/output
 ├── libPluginBase.h
 └── libPluginBase.so (插件lib）
 ```
 
 ### 组装构建结果
 
-当C++核心和Golang插件都编译完成后，可以将C++核心的构建结果拷贝到`/src/bin`目录组装出完整的构建结果。
+当C++核心和Golang插件都编译完成后，可以将C++核心的构建结果拷贝到`/src/output`目录组装出完整的构建结果。
 
 ```
-cp -a /src/core/build/ilogtail /src/bin
-cp -a /src/core/build/plugin/libPluginAdapter.so /src/bin
+cp -a /src/core/build/ilogtail /src/output
+cp -a /src/core/build/plugin/libPluginAdapter.so /src/output
 ```
 
-`/src/bin`目录的结构如下
+`/src/output`目录的结构如下
 
 ```
-/src/bin
+/src/output
 ├── ilogtail (主程序）
 ├── libPluginAdapter.so（插件接口）
 ├── libPluginBase.h
 └── libPluginBase.so (插件lib）
 ```
 
-由于容器挂载了主机的源代码目录，因此源代码目录下的`bin`目录与之完全相同。
+由于容器挂载了主机的源代码目录，因此源代码目录下的`output`目录与之完全相同。
