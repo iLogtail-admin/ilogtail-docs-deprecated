@@ -72,4 +72,4 @@
 * [使用DaemonSet模式采集K8s容器日志](getting-started/k8s-daemonset-to-kafka.md)
 * [主机环境采集业务日志到SLS](getting-started/hostlog-collect-to-sls.md)
 * [K8s环境采集业务日志到SLS](getting-started/k8slog-collect-to-sls.md)
-* [采集MySQL Binlog](getting-started/how-to-collect-binlog.md)
+* [使用iLogtail采集MySQL Binlog](getting-started/how-to-collect-binlog.md)
