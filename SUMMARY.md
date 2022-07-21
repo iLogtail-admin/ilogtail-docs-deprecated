@@ -11,7 +11,8 @@
 ## 安装 <a href="#installation" id="installation"></a>
 
 * [快速开始](installation/quick-start.md)
-* [容器使用](installation/start-with-container.md)
+* [Docker使用](installation/start-with-container.md)
+* [Kubernetes使用](installation/start-with-k8s.md)
 * [使用Supervised管理](installation/supervised.md)
 * [发布记录](installation/release-notes.md)
 * [支持的操作系统](installation/os.md)
@@ -19,6 +20,7 @@
   * [下载](installation/sources/download.md)
   * [编译](installation/sources/build.md)
   * [Docker镜像](installation/sources/docker-image.md)
+* [镜像站](installation/mirrors.md)
 
 ## 概念 <a href="#concepts" id="concepts"></a>
 
@@ -37,6 +39,7 @@
 * [输入](data-pipeline/input/README.md)
   * [文本日志](data-pipeline/input/file-log.md)
   * [容器标准输出](data-pipeline/input/input-docker-stdout.md)
+  * [主机Meta数据](data-pipeline/input/metric-meta-host.md)
 * [处理](data-pipeline/processor/README.md)
   * [多行切分](data-pipeline/processor/split-log-regex.md)
   * [正则](data-pipeline/processor/regex.md)
@@ -69,3 +72,7 @@
 ## 使用入门 <a href="#getting-started" id="getting-started"></a>
 
 * [如何将业务日志采集到Kafka](getting-started/how-to-collect-to-kafka.md)
+* [使用DaemonSet模式采集K8s容器日志](getting-started/k8s-daemonset-to-kafka.md)
+* [主机环境采集业务日志到SLS](getting-started/hostlog-collect-to-sls.md)
+* [K8s环境采集业务日志到SLS](getting-started/k8slog-collect-to-sls.md)
+* [使用iLogtail采集MySQL Binlog](getting-started/how-to-collect-binlog.md)
