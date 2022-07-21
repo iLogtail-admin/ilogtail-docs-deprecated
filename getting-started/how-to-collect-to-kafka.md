@@ -40,7 +40,7 @@
 
 * 安装
 
-```
+```bash
 # 下载、解压
 $ wget  https://dlcdn.apache.org/kafka/3.2.0/kafka_2.13-3.2.0.tgz
 $ tar -xzf kafka_2.13-3.2.0.tgz
@@ -57,7 +57,7 @@ $ bin/kafka-server-start.sh config/server.properties &
 
 * 分别创建两个topic，用于存储access-log、error-log。
 
-```
+```bash
 bin/kafka-topics.sh --create --topic access-log --bootstrap-server localhost:9092
 bin/kafka-topics.sh --create --topic error-log --bootstrap-server localhost:9092
 ```
@@ -68,7 +68,7 @@ bin/kafka-topics.sh --create --topic error-log --bootstrap-server localhost:9092
 
 * 下载
 
-```
+```bash
 $ wget https://ilogtail-community-edition.oss-cn-shanghai.aliyuncs.com/latest/ilogtail-latest.linux-amd64.tar.gz
 tar -xzvf ilogtail-latest.linux-amd64.tar.gz
 $ cd ilogtail-<version>
@@ -88,7 +88,7 @@ drwxr-xr-x 2 root root    4096 7月  12 09:55 user_yaml_config.d
 
 在`user_yaml_config.d`创建针对`access_log`、`error_log`分别创建两个采集配置，两个采集配置分别将日志采集到`Kafka`不同的`Topic`中。
 
-```
+```yaml
 # 访问日志采集配置
 $ cat user_yaml_config.d/access_log.yaml
 enable: true
@@ -118,7 +118,7 @@ flushers:
     Topic: access-log
 ```
 
-```
+```yaml
 # 错误日志采集配置
 $ cat user_yaml_config.d/error_log.yaml
 enable: true
@@ -133,7 +133,7 @@ flushers:
     Topic: error-log
 ```
 
-```
+```bash
 $ tree user_yaml_config.d/
 user_yaml_config.d/
 ├── access_log.yaml
@@ -142,7 +142,7 @@ user_yaml_config.d/
 
 * 启动
 
-```
+```bash
 $ nohup ./ilogtail > stdout.log 2> stderr.log &
 ```
 
@@ -150,7 +150,7 @@ $ nohup ./ilogtail > stdout.log 2> stderr.log &
 
 * 访问日志验证
 
-```
+```json
 # 终端1: 启动kafka-console-consumer，消费access-log
 $ bin/kafka-console-consumer.sh --topic access-log --from-beginning --bootstrap-server localhost:9092
 
@@ -163,7 +163,7 @@ $ echo '127.0.0.1 - - [10/Aug/2017:14:57:51 +0800] "POST /PutData?Category=YunOs
 
 * 错误日志验证
 
-```
+```json
 # 终端1: 启动kafka-console-consumer，消费error-log
 $ bin/kafka-console-consumer.sh --topic error-log --from-beginning --bootstrap-server localhost:9092
 

@@ -81,7 +81,7 @@ iLogtail支持使用容器标签、环境变量、K8s标签、Pod名称、命名
 
 1. K8s集群的搭建和具备访问K8s集群的[kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 2. Kafka的搭建和具备访问[Kafka](https://kafka.apache.org/quickstart)的consumer client
-3. 已经创建了名为[access-log](https://ilogtail.gitbook.io/ilogtail-docs/getting-started/how-to-collect-to-kafka#hvouy)的topic
+3. 已经创建了名为access-log和error-log的[topic](https://ilogtail.gitbook.io/ilogtail-docs/getting-started/how-to-collect-to-kafka#hvouy)
 
 #### 第一步，创建命名空间和配置文件 <a href="#is9ro" id="is9ro"></a>
 
@@ -89,7 +89,7 @@ iLogtail支持使用容器标签、环境变量、K8s标签、Pod名称、命名
 
 ilogtail-ns.yaml:
 
-```yaml
+```yaml  {.line-numbers}
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -104,7 +104,7 @@ kubectl apply -f ilogtail-ns.yaml
 
 ilogtail-user-configmap.yaml:
 
-```yaml
+```yaml  {.line-numbers}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -152,7 +152,7 @@ kubectl apply -f ilogtail-user-configmap.yaml
 
 ilogtail-daemonset.yaml:
 
-```yaml
+```yaml  {.line-numbers}
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -246,7 +246,7 @@ kubectl apply -f ilogtail-deployment.yaml
 
 nginx-deployment.yaml:
 
-```yaml
+```yaml  {.line-numbers}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -311,7 +311,7 @@ kubectl exec nginx-76d49876c7-r892w -- curl localhost/hello/ilogtail
 
 替换ilogtail-user-configmap.yaml的1-19行，保存为ilogtail-user-configmap-processor.yaml。
 
-```yaml
+```yaml  {.line-numbers}
   nginx_stdout.yaml: |
     enable: true
     inputs:
@@ -357,25 +357,143 @@ kubectl exec -n ilogtail ilogtail-ds-krm8t -- /bin/sh -c "kill 1"
 
 ```json
 {"Time":1657729579,"Contents":[
-{"Key":"_time_","Value":"2022-07-14T00:26:19.304905535+08:00"},
-{"Key":"_source_","Value":"stdout"},
-{"Key":"_image_name_","Value":"docker.io/library/nginx:latest"},
-{"Key":"_container_name_","Value":"nginx"},
-{"Key":"_pod_name_","Value":"nginx-76d49876c7-r892w"},
-{"Key":"_namespace_","Value":"default"},
-{"Key":"_pod_uid_","Value":"07f75a79-da69-40ac-ae2b-77a632929cc6"},
-{"Key":"_container_ip_","Value":"10.223.0.154"},
-{"Key":"remote_addr","Value":"::1"},
-{"Key":"remote_user","Value":"-"},
-{"Key":"time_local","Value":"13/Jul/2022:16:26:19"},
-{"Key":"method","Value":"GET"},
-{"Key":"url","Value":"/hello/ilogtail"},
-{"Key":"protocol","Value":"HTTP/1.1"},
-{"Key":"status","Value":"404"},
-{"Key":"body_bytes_sent","Value":"153"},
-{"Key":"http_referer","Value":"-"},
-{"Key":"http_user_agent","Value":"curl/7.74.0"},
-{"Key":"http_x_forwarded_for","Value":"-"}]}
+  {"Key":"_time_","Value":"2022-07-14T00:26:19.304905535+08:00"},
+  {"Key":"_source_","Value":"stdout"},
+  {"Key":"_image_name_","Value":"docker.io/library/nginx:latest"},
+  {"Key":"_container_name_","Value":"nginx"},
+  {"Key":"_pod_name_","Value":"nginx-76d49876c7-r892w"},
+  {"Key":"_namespace_","Value":"default"},
+  {"Key":"_pod_uid_","Value":"07f75a79-da69-40ac-ae2b-77a632929cc6"},
+  {"Key":"_container_ip_","Value":"10.223.0.154"},
+  {"Key":"remote_addr","Value":"::1"},
+  {"Key":"remote_user","Value":"-"},
+  {"Key":"time_local","Value":"13/Jul/2022:16:26:19"},
+  {"Key":"method","Value":"GET"},
+  {"Key":"url","Value":"/hello/ilogtail"},
+  {"Key":"protocol","Value":"HTTP/1.1"},
+  {"Key":"status","Value":"404"},
+  {"Key":"body_bytes_sent","Value":"153"},
+  {"Key":"http_referer","Value":"-"},
+  {"Key":"http_user_agent","Value":"curl/7.74.0"},
+  {"Key":"http_x_forwarded_for","Value":"-"}]}
+```
+
+## 采集容器内的文件
+某些应用选择将日志打印在容器内使用自带的日志机制进行轮转，iLogtail也支持这种场景的日志采集。这里我们以采集json格式日志为例。
+
+前提条件和对iLogtail DaemonSet的部署不再赘述，仅关注配置和验证过程。
+
+#### 第一步，配置容器日志采集 <a href="#fcfc" id="fcfc"></a>
+
+ilogtail-user-configmap.yaml:
+
+```yaml {.line-numbers}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ilogtail-user-cm
+  namespace: ilogtail
+data:
+  json_log.yaml: |
+    enable: true
+    inputs:
+      - Type: file_log
+        LogPath: /root/log
+        FilePattern: "json.log"
+        DockerFile: true
+        DockerIncludeLabel:
+          io.kubernetes.container.name: json-log
+    processors:
+      - Type: processor_json
+        SourceKey: content
+        KeepSource: false
+        ExpandDepth: 1
+        ExpandConnector: ""
+    flushers:
+      - Type: flusher_kafka
+        Brokers:
+          - 39.99.61.125:9092
+        Topic: json-log
+```
+
+```bash
+kubectl apply -f ilogtail-user-configmap.yaml
+```
+
+第13行表明采集的文件来自容器内，14-15行使用容器名对目标容器进行筛选。17-21行使用了json处理插件对日志进行结构化解析。
+
+重启iLogtail容器使其生效。
+
+```
+kubectl exec -n ilogtail ilogtail-ds-krm8t -- /bin/sh -c "kill 1"
+```
+
+#### 第二步，部署测试容器，生成日志并验证 <a href="#rzyz" id="rzyz"></a>
+
+json-log-deployment.yaml:
+
+```yaml {.line-numbers}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: json-log
+  name: json-log
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: json-log
+  template:
+    metadata:
+      labels:
+        app: json-log
+    spec:
+      containers:
+        - args:
+            - >-
+              mkdir -p /root/log; while true; do date +'{"time":"+%Y-%m-%d
+              %H:%M:%S","message":"Hello, iLogtail!"}' >>/root/log/json.log;
+              sleep 10; done
+          command:
+            - /bin/sh
+            - '-c'
+            - '--'
+          image: 'alpine:3.9.6'
+          name: json-log
+          volumeMounts:
+            - mountPath: /etc/localtime
+              name: volume-localtime
+      volumes:
+        - hostPath:
+            path: /etc/localtime
+            type: ''
+          name: volume-localtime
+```
+
+```bash
+kubectl apply -f json-log-deployment.yaml
+```
+
+启动Kafka消费端开始观察日志：
+
+```bash
+bin/kafka-console-consumer.sh --topic json-log --bootstrap-server <kafka_host>:<kafka_port>
+```
+
+可以看到消费端已经有日志输出，并且进行了结构化解析：
+```json
+{"Time":1658341942,"Contents":[
+  {"Key":"__tag__:__path__","Value":"/root/log/json.log"},
+  {"Key":"__tag__:__user_defined_id__","Value":"default"},
+  {"Key":"__tag__:_container_ip_","Value":"10.223.0.189"},
+  {"Key":"__tag__:_image_name_","Value":"docker.io/library/alpine:3.9.6"},{"Key":"__tag__:_container_name_","Value":"json-log"},
+  {"Key":"__tag__:_pod_name_","Value":"json-log-5df95f9f84-dhj2l"},
+  {"Key":"__tag__:_namespace_","Value":"default"},
+  {"Key":"__tag__:_pod_uid_","Value":"e42818ef-75c4-4854-9fe0-4dd7c7f7ccd1"},
+  {"Key":"time","Value":"+2022-07-21 02:32:22"},
+  {"Key":"message","Value":"Hello, iLogtail!"}]}
 ```
 
 ## 总结 <a href="#qtdmu" id="qtdmu"></a>
