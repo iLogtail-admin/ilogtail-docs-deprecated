@@ -20,6 +20,7 @@
   * [下载](installation/sources/download.md)
   * [编译](installation/sources/build.md)
   * [Docker镜像](installation/sources/docker-image.md)
+  * [编译依赖](installation/sources/dependencies.md)
 * [镜像站](installation/mirrors.md)
 
 ## 概念 <a href="#concepts" id="concepts"></a>
@@ -61,6 +62,7 @@
 
 ## 开发者指南 <a href="#developer-guide" id="developer-guide"></a>
 
+* [开发环境](developer-guide/development-environment.md)
 * [CGO接口](developer-guide/cgo-interface.md)
 * [插件编写指南](developer-guide/plugin-guide.md)
 * [测试](developer-guide/test/README.md)
