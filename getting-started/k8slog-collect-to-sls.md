@@ -44,9 +44,9 @@
 
 ### 场景 <a href="#reuza" id="reuza"></a>
 
-选择Label为`app: nginx`的容器，采集标准输出流`stdout`（访问日志）、标准错误流`stderr`（错误日志），并将采集到的日志写入SLS中。
+选择Label为`app: nginx`的容器，采集标准输出流`stdout`（访问日志）、标准错误流`stderr`（错误日志），并将采集到的日志写入SLS中。采集`json.log`文本日志写入SLS。
 
-其中，`stdout`使用正则解析将日志解析为结构化日志；`stdin`为单行文本打印。
+其中，`stdout`使用正则解析将日志解析为结构化日志；`stdin`为单行文本打印；`json.log`为JSON格式文件。
 
 如果之前已经使用`iLogtail`将日志采集到`Kafka`，在迁移阶段可以保持双写，等稳定后删除`Kafka Flusher`配置即可。
 
