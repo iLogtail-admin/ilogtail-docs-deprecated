@@ -1,10 +1,14 @@
-# ServiceInput插件示例
+# ServiceInput示例插件
 
 ## 简介
-`service_example` 插件是ServiceInput样例插件，用于介绍讲解如何编写ServiceInput插件。
+`service_input_example` 可作为编写`ServiceInput`类插件的参考示例样例，可以在指定端口接收模拟HTTP请求。
 
 ## 配置参数
-该插件不需要配置参数。
+| 参数    | 类型   | 是否必选 | 说明                                         |
+| ------- | ------ | -------- | -------------------------------------------- |
+| Type    | String | 是       | 插件类型，固定为`service_input_example`      |
+| Address | String | 否       | <p>接收端口。</p><p>默认取值为`:19000`。</p> |
+
 
 ## 样例
 
