@@ -47,6 +47,7 @@
   * [正则](data-pipeline/processor/regex.md)
   * [Json](data-pipeline/processor/json.md)
   * [分隔符](data-pipeline/processor/delimiter.md)
+  * [键值对](data-pipeline/processor/processor-split-key-value.md)
   * [条件字段处理](data-pipeline/processor/fields-with-condition.md)
   * [原始](data-pipeline/processor/default.md)
 * [聚合](data-pipeline/aggregator.md)

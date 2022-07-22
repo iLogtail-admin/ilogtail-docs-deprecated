@@ -19,15 +19,17 @@
 | `processor_json`            | SLS官方 | -   | 实现对Json格式日志的解析。       |
 | `processor_split_char`      | SLS官方 | -   | 通过单字符的分隔符提取字段。        |
 | `processor_split_string`    | SLS官方 | -   | 通过多字符的分隔符提取字段。        |
+| `processor_split_key_value` | SLS官方 | -      | 通过切分键值对的方式提取字段。             |
 | `processor_fields_with_conditions` | 社区 | [`pj1987111`](https://github.com/pj1987111) | 根据日志部分字段的取值，动态进行字段扩展或删除。 |
 | `processor_default`         | SLS官方 | -   | 不做处理，采集原始数据。        |
+
 
 ## 聚合
 
 ## 输出
 
-| 名称               | 提供方   | 贡献者 | 简介                 |
-| ---------------- | ----- | --- | ------------------ |
-| `flusher_stdout` | SLS官方 | -   | 将采集到的数据输出到标准输出或文件。 |
-| `flusher_sls`    | SLS官方 | -   | 将采集到的数据输出到SLS。     |
-| `flusher_kafka`  | 社区    | -   | 将采集到的数据输出到Kafka。   |
+| 名称             | 提供方  | 贡献者 | 简介                                 |
+| ---------------- | ------- | ------ | ------------------------------------ |
+| `flusher_stdout` | SLS官方 | -      | 将采集到的数据输出到标准输出或文件。 |
+| `flusher_sls`    | SLS官方 | -      | 将采集到的数据输出到SLS。            |
+| `flusher_kafka`  | 社区    | -      | 将采集到的数据输出到Kafka。          |
