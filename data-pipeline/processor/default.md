@@ -1,11 +1,10 @@
 # 原始
 
 ## 简介
-`processor_default`插件不对数据任何操作，只是简单地返回，保持数据的原样。
+`processor_default`插件不对数据任何操作，只是简单的数据透传。
 
 ## 配置参数
 
-### `processor_default`配置
 `processor_default`插件不需要配置参数
 
 
