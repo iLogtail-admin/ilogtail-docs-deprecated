@@ -45,6 +45,7 @@
   * [正则](data-pipeline/processor/regex.md)
   * [Json](data-pipeline/processor/json.md)
   * [分隔符](data-pipeline/processor/delimiter.md)
+  * [键值对](data-pipeline/processor/processor-split-key-value.md)
 * [聚合](data-pipeline/aggregator.md)
 * [输出](data-pipeline/flusher.md)
   * [标准输出/文件](data-pipeline/flusher/stdout.md)
