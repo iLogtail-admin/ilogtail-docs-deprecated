@@ -6,6 +6,8 @@
 | ----------  | -----  | ----------------------------------------------------- | ---- |
 | `file_log`  | SLS官方 | [`messixukejia`](https://github.com/messixukejia) | 文本采集 |
 | `metric_meta_host`   | SLS官方 | -                                         | 主机Meta数据     |
+| `metric_example`   | SLS官方 | -                                         | MetricInput插件开发示例     |
+| `service_example`   | SLS官方 | -                                         |  ServiceInput插件开发示例      |
 
 
 ## 处理

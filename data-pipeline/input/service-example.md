@@ -34,28 +34,21 @@ type ServiceInput interface {
 ### ServiceExample详解
 
 完整文件请参考[service_example.go](https://github.com/alibaba/ilogtail/blob/main/plugins/input/example/service_example.go)，这里仅说明其主体部分。
-* 定义ServiceExample结构体实现ServiceInput接口。这个例子里，我们设计了一个五秒递增一次的计数器counter，这也是我们要采集的metric数据。
+* 定义ServiceExample结构体实现ServiceInput接口。这个例子里，我们用一个http server接收数据，可以使用`curl --header "test:val123" http://127.0.0.1:19000/data`命令来进行测试
 ```go
-type MetricsExample struct {
-	counter      int
-	gauge        int
-	commonLabels helper.KeyValues
-	labels       string
+type ServiceExample struct {
+	Address string
+	server  *http.Server
+	context ilogtail.Context
 }
 ```
 
-* Init方法会在运作前触发。在这个例子中，我们将counter的初始值设置为100。
+* Init方法会在运作前触发。在这个插件的例子中，我们只存储了logstore的config context，并且返回0来使用默认的触发间隔。
+
   
 ```go
-func (m *MetricsExample) Init(context ilogtail.Context) (int, error) {
-    // 初始化
-	m.counter = 100
-	// 使用helper.KeyValues来存储metric标签
-	m.commonLabels.Append("hostname", util.GetHostName())
-	m.commonLabels.Append("ip", util.GetIPAddress())
-	// 将commonLabels转换为字符串，以减少内存成本，因为标签是固定的值
-	m.labels = m.commonLabels.String()
-    // 返回0，使用默认的触发间隔。
+func (s *ServiceExample) Init(context ilogtail.Context) (int, error) {
+	s.context = context
 	return 0, nil
 }
 ```
@@ -63,33 +56,49 @@ func (m *MetricsExample) Init(context ilogtail.Context) (int, error) {
 * 设置插件说明。
 
 ```go
-func (m *MetricsExample) Description() string {
-	return "This is a metric input example plugin, this plugin would show how to write a simple metric input plugin."
+func (s *ServiceExample) Description() string {
+	return "This is a service input example plugin, the plugin would show how to write a simple service input plugin."
 }
 ```
 
-* 每次触发都会调用Collect来收集指标值，并将其发送到收集器中。
+* ServiceInput插件是一个阻塞式的方法，它会在一个单独的协程中启动，适用于接收外部输入数据。在演示中，我们实现了一个http server来接受指定的请求头。
 
 ```go
-func (m *MetricsExample) Collect(collector ilogtail.Collector) error {
-	m.counter++
-	// 这里用一个随机值作为指标值。
-	m.gauge = rand.Intn(100)
-
-	// 收集metric数据。
-	helper.AddMetric(collector, "example_counter", time.Now(), m.labels, float64(m.counter))
-	helper.AddMetric(collector, "example_gauge", time.Now(), m.labels, float64(m.gauge))
-	return nil
+func (s *ServiceExample) Start(collector ilogtail.Collector) error {
+	logger.Info(s.context.GetRuntimeContext(), "start the example plugin")
+	mux := http.NewServeMux()
+	mux.HandleFunc("/data", func(writer http.ResponseWriter, request *http.Request) {
+		val := request.Header.Get("test")
+		if val != "" {
+			collector.AddDataArray(nil, []string{"test"}, []string{val})
+		}
+	})
+	s.server = &http.Server{
+		Addr:        s.Address,
+		Handler:     mux,
+		ReadTimeout: 5 * time.Second,
+	}
+	return s.server.ListenAndServe()
 }
 ```
 
-* 将该插件注册到MetricInputs数组中，MetricInputs插件的注册名（即json配置中的plugin_type）必须以"metric_"开头。
+* 当关闭插件时，会触发Stop方法，终止Start方法阻塞的协程。
+
+```go
+func (s *ServiceExample) Stop() error {
+	logger.Info(s.context.GetRuntimeContext(), "close the example plugin")
+	return s.server.Shutdown(context.Background())
+}
+```
+
+* 将该插件注册到ServiceInputs数组中，ServiceInputs插件的注册名（即json配置中的plugin_type）必须以"service_"开头。
 
 ```go
 func init() {
-	ilogtail.MetricInputs["metric_input_example"] = func() ilogtail.MetricInput {
-		return &MetricsExample{
-			// 这里可以设置一个默认值。
+	ilogtail.ServiceInputs["service_input_example"] = func() ilogtail.ServiceInput {
+		return &ServiceExample{
+			// here you could set default value.
+			Address: ":19000",
 		}
 	}
 }
@@ -101,12 +110,21 @@ func init() {
 ```yaml
 enable: true
 inputs:
-  - Type: metric_input_example
+  - Type: service_input_example
 flushers:
   - Type: flusher_stdout
     OnlyStdout: true  
 ```
 
+* 输入
+```
+curl --header "test:val123" http://127.0.0.1:19000/data
+```
+
 * 输出
 ```
+{
+	"test":"val123",
+	"__time__":"1658495321"
+}
 ```
