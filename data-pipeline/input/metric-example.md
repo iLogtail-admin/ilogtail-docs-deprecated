@@ -1,7 +1,7 @@
 # MetricInput插件示例
 
 ## 简介
-`metric_example` 插件是MetricInput样例插件，用于介绍讲解如何编写MetricInput插件。
+`metric_example` 可作为编写`MetricInput`插件的参考样例，该插件会定时生成模拟的指标数据。
 
 ## 配置参数
 该插件不需要配置参数。
