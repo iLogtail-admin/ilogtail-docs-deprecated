@@ -6,6 +6,7 @@
 | ------------------ | ------- | ------------------------------------------------- | ------------ |
 | `file_log`         | SLS官方 | [`messixukejia`](https://github.com/messixukejia) | 文本采集     |
 | `metric_meta_host` | SLS官方 | -                                                 | 主机Meta数据 |
+| `service_kafka`    | SLS官方 | -                                                 | 将Kafka数据输入到iLogtail |
 
 
 ## 处理
@@ -18,6 +19,13 @@
 | `processor_split_char`      | SLS官方 | -      | 通过单字符的分隔符提取字段。               |
 | `processor_split_string`    | SLS官方 | -      | 通过多字符的分隔符提取字段。               |
 | `processor_split_key_value` | SLS官方 | -      | 通过切分键值对的方式提取字段。             |
+
+## 加速
+| 名称                        | 提供方  | 贡献者 | 简介                                       |
+| --------------------------- | ------- | ------ | ------------------------------------------ |
+| `processor_regex_accelerate` | SLS官方 | -      | 通过正则匹配以加速模式实现文本日志的字段提取     |
+| `processor_json_accelerate`  | SLS官方 | -      | 以加速模式实现`Json`格式日志的字段提取         |
+| `processor_delimiter_accelerate` | SLS官方 | -  | 以加速模式实现分隔符日志的字段提取             |
 
 
 ## 聚合
