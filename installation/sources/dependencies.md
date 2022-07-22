@@ -13,12 +13,12 @@
 | 7       | jsoncpp ([1.8.4](https://github.com/open-source-parsers/jsoncpp/releases/tag/1.8.4))                                                       | 解析JSON配置        |
 | 8       | libunwind ([1.2.1](https://github.com/libunwind/libunwind/releases/tag/v1.2.1))                                                            |                 |
 | 9       | lz4 ([1.8.3](https://github.com/lz4/lz4/releases/tag/v1.8.3))                                                                              | 日志传输压缩          |
-| 10      | openssl ([1.0.2p](https://www.openssl.org/source/old/1.0.2/))                                                                              |                 |
+| 10      | openssl ([1.0.2p](https://www.openssl.org/source/old/1.0.2/))                                                                              | 数据签名和加密         |
 | 11      | protobuf ([3.6.1](https://github.com/protocolbuffers/protobuf/releases/tag/v3.6.1))                                                        | 日志传输序列化         |
 | 12      | rapidjson ([c0ca05f6ddb690c943a7fc59efab9ca9cfc39736](https://github.com/Tencent/rapidjson/tree/c0ca05f6ddb690c943a7fc59efab9ca9cfc39736)) | 日志JSON解析        |
 | 13      | re2 ([2018-09-01](https://github.com/google/re2/releases/tag/2018-09-01))                                                                  | 日志正则解析          |
 | 14      | spdlog ([1.1.0](https://github.com/gabime/spdlog/releases/tag/v1.1.0))                                                                     | 打印日志            |
 | 15      | zlib ([1.2.11](https://github.com/madler/zlib/releases/tag/v1.2.11))                                                                       |                 |
-| 16      | breakpad ([66571f4838b2306161f072555cb199049bc68142](https://github.com/google/breakpad/tree/66571f4838b2306161f072555cb199049bc68142))    |                 |
+| 16      | breakpad ([66571f4838b2306161f072555cb199049bc68142](https://github.com/google/breakpad/tree/66571f4838b2306161f072555cb199049bc68142))    | 崩溃诊断转储迷你堆       |
 | 17      | leveldb ([1.22](https://github.com/google/leveldb/releases/tag/1.22))                                                                      |                 |
 | 18      | yaml-cpp ([0.7.0](https://github.com/jbeder/yaml-cpp/releases/tag/yaml-cpp-0.7.0))                                                         | 解析YAML配置        |
