@@ -50,7 +50,7 @@
 
 如果之前已经使用`iLogtail`将日志采集到`Kafka`，在迁移阶段可以保持双写，等稳定后删除`Kafka Flusher`配置即可。
 
-![](<../.gitbook/assets/getting-started/k8slog-collect-to-sls/collection-config.jpg>)
+![](<../.gitbook/assets/getting-started/k8slog-collect-to-sls/collection-config.png>)
 
 ### 前提条件
 
@@ -65,15 +65,76 @@
 ![](../.gitbook/assets/getting-started/collect-to-sls/endpoint.png)
 
 * K8s环境已部署nginx。
-  * 使用官方镜像（[https://hub.docker.com/\_/nginx](https://hub.docker.com/\_/nginx)）
-  * 默认已将access.log和error.log重定向到标准输出和错误流
-  * 创建Deployment时Pod层级配置了app: nginx的label
-  * 使用默认日志格式
-
+```yaml  {.line-numbers}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: default
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - image: 'nginx:latest'
+          name: nginx
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
 ```
-    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                      '$status $body_bytes_sent "$http_referer" '
-                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+* K8s环境已部署打印json日志文件的程序。
+```yaml {.line-numbers}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: json-log
+  name: json-log
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: json-log
+  template:
+    metadata:
+      labels:
+        app: json-log
+    spec:
+      containers:
+        - args:
+            - >-
+              mkdir -p /root/log; while true; do date +'{"time":"+%Y-%m-%d
+              %H:%M:%S","message":"Hello, iLogtail!"}' >>/root/log/json.log;
+              sleep 10; done
+          command:
+            - /bin/sh
+            - '-c'
+            - '--'
+          image: 'alpine:3.9.6'
+          name: json-log
+          volumeMounts:
+            - mountPath: /etc/localtime
+              name: volume-localtime
+      volumes:
+        - hostPath:
+            path: /etc/localtime
+            type: ''
+          name: volume-localtime
 ```
 
 ### 部署iLogtail <a href="#vmyyq" id="vmyyq"></a>
@@ -101,7 +162,7 @@ kubectl apply -f ilogtail-ns.yaml
 
 ilogtail-user-configmap.yaml
 
-```yaml
+```yaml {.line-numbers}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -159,9 +220,33 @@ data:
         Brokers:
           - localhost:9092
         Topic: error-log
+  json_log.yaml: |
+    enable: true
+    inputs:
+      - Type: file_log
+        LogPath: /root/log
+        FilePattern: "json.log"
+        DockerFile: true
+        DockerIncludeLabel:
+          io.kubernetes.container.name: json-log
+    processors:
+      - Type: processor_json
+        SourceKey: content
+        KeepSource: false
+        ExpandDepth: 1
+        ExpandConnector: ""
+    flushers:
+      - Type: flusher_sls
+        Endpoint: cn-hangzhou.log.aliyuncs.com
+        ProjectName: test-ilogtail
+        LogstoreName: json-log
+      - Type: flusher_kafka
+        Brokers:
+          - localhost:9092
+        Topic: json-log
 ```
 
-将模版中的33-35、51-53行修改为实际SLS目标存储库，38、56行修改为实际Kafka broker地址。
+将模版中的33-35、51-53、75-77行修改为实际SLS目标存储库，38、56、80行修改为实际Kafka broker地址。
 
 ```bash
 kubectl apply -f ilogtail-user-configmap.yaml
@@ -177,7 +262,7 @@ kubectl apply -f ilogtail-user-configmap.yaml
 
 ilogtail-secret.yaml
 
-```yaml
+```yaml {.line-numbers}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -206,7 +291,7 @@ kubectl apply -f ilogtail-secret.yaml
 
 ilogtail-deployment.yaml
 
-```yaml
+```yaml {.line-numbers}
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -344,6 +429,12 @@ SLS控制台查询结果
 SLS控制台查询结果
 
 ![](<../.gitbook/assets/getting-started/k8slog-collect-to-sls/sls-error-log.png>)
+
+* JSON日志验证，查看logstore数据正常
+
+SLS控制台查询结果
+
+![](<../.gitbook/assets/getting-started/k8slog-collect-to-sls/sls-json-log.png>)
 
 ## 总结 <a href="#ovoc3" id="ovoc3"></a>
 
