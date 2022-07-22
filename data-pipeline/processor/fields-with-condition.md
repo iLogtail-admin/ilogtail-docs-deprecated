@@ -51,52 +51,64 @@
 
 ## 样例
 
-* 根据不同条件字段执行不同任务的采集配置
-```
+* 采集配置(使用`metric_mock`插件模拟输入)
+```yaml
 enable: true
 inputs:
   - Type: metric_mock
     Fields:
-      1111: "2222"
+      content : "{\"t1\": \"2022-07-22 12:50:08.571218122\", \"t2\": \"2022-07-22 12:50:08\", \"a\":\"b\",\"c\":2,\"d\":10, \"seq\": 20}"
+      t1 : "2022-07-22 12:50:08.571218122"
+      t2 : "2022-07-22 12:50:08"
+      a : b
+      c : "2"
+      d : "10"
+      seq : "20"
 processors:
-  - Type: processor_fields_with_condition
-    SourceKey: content
-    DropIfNotMatchCondition: true // 可选，case条件都不满足时，该条日志是丢弃（true）还是保留（false）。
-    Switch:
-      - Case:
-          LogicalOperator: and // 可选，"and"(默认), "or"。
-          RelationOperator: regexp // 可选，"equals"(默认), "regexp", "contains", "startwith"。
-          FieldConditions:
-            key1: "^value1.*"
-            key2: "value1"
-        Actions:
-          - type: processor_add_fields
-            IgnoreIfExist: false
-            Fields:
-              eventCode: "event_00001"
-              name: "error_oom"
-          - type: processor_drop
-            DropKeys:
-              - aaa1
-              - aaa2
-      - Case:
-          LogicalOperator: and
-          RelationOperator: regexp
-          FieldConditions:
-            key1: "^value2.*"
-            key2: "value2"
-        Actions:
-          - type: processor_add_fields
-            IgnoreIfExist: false
-            Fields:
-              eventCode: "event_00002"
-              name: "error_oom2"
-          - type: processor_drop
-            DropKeys:
-              - aaa1
-              - aaa2
-
+    - Type: processor_fields_with_condition
+      DropIfNotMatchCondition: true 
+      Switch:
+        - Case:
+            FieldConditions:
+              seq: "10"
+              d: "10"
+          Actions:
+            - type: processor_add_fields
+              IgnoreIfExist: false
+              Fields:
+                eventCode: event_00001
+                name: error_oom
+            - type: processor_drop
+              DropKeys:
+                - c
+        - Case:
+            FieldConditions:
+              seq: "20"
+              d: "10"
+          Actions:
+            - type: processor_add_fields
+              IgnoreIfExist: false
+              Fields:
+                eventCode: event_00002
+                name: error_oom2
 flushers:
   - Type: flusher_stdout
     OnlyStdout: true
+```
+
+* 输出
+```
+{
+  "Index":"1",
+  "a":"b",
+  "c":"2",
+  "content":"{\"t1\": \"2022-07-22 12:50:08.571218122\", \"t2\": \"2022-07-22 12:50:08\", \"a\":\"b\",\"c\":2,\"d\":10, \"seq\": 20}",
+  "d":"10",
+  "seq":"20",
+  "t1":"2022-07-22 12:50:08.571218122",
+  "t2":"2022-07-22 12:50:08",
+  "eventCode":"event_00002",
+  "name":"error_oom2",
+  "__time__":"1658490721"
+}
 ```
