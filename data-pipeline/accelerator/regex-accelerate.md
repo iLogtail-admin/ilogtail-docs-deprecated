@@ -3,6 +3,8 @@
 ## 简介
 `processor_regex_accelerate processor`插件通过正则匹配以加速模式实现文本日志的字段提取。
 
+备注：该插件目前仅支持与输入插件file_log和输出插件flusher_sls配套使用，且不得与其它加速插件混用。
+
 ## 配置参数
 | 参数 | 类型 | 是否必选 | 说明 |
 | --- | --- | --- | --- |
@@ -21,7 +23,7 @@
 | EnableRawLog | Boolean | 否 | 是否上传原始日志。如果未添加该参数，则默认使用false，表示不上传原始日志。|
 | DiscardUnmatch | Boolean | 否 | 是否丢弃匹配失败的日志。如果未添加该参数，则默认使用true，表示丢弃匹配失败的日志。|
 | MergeType | String | 否 | 日志聚合方式。可选值包括“topic”和“logstore”。如果未添加该参数，则默认使用topic，表示根据topic聚合。 |
-| SensitiveKeys | Array | 否 | 脱敏功能，具体信息参见表2。 |
+| SensitiveKeys | Map<String, Object> | 否 | 脱敏功能，具体信息参见表2。 |
 
 
 - 表1:时间格式

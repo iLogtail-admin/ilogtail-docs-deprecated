@@ -23,9 +23,9 @@
 ## 加速
 | 名称                        | 提供方  | 贡献者 | 简介                                       |
 | --------------------------- | ------- | ------ | ------------------------------------------ |
-| `processor_regex_accelerate` | SLS官方 | -      | 通过正则匹配以加速模式实现文本日志的字段提取     |
-| `processor_json_accelerate`  | SLS官方 | -      | 以加速模式实现`Json`格式日志的字段提取         |
-| `processor_delimiter_accelerate` | SLS官方 | -  | 以加速模式实现分隔符日志的字段提取             |
+| `processor_regex_accelerate` | SLS官方 | -      | 通过正则匹配以加速模式实现文本日志的字段提取。     |
+| `processor_json_accelerate`  | SLS官方 | -      | 以加速模式实现`Json`格式日志的字段提取。         |
+| `processor_delimiter_accelerate` | SLS官方 | -  | 以加速模式实现分隔符日志的字段提取。             |
 
 
 ## 聚合
