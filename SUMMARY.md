@@ -55,7 +55,7 @@
 ## 工作原理 <a href="#principle" id="principle"></a>
 
 * [文件发现](principle/file-discovery.md)
-* [插件系统](principle/plugin-system.md.md)
+* [插件系统](principle/plugin-system.md)
 
 ## 可观测性 <a href="#observability" id="observability"></a>
 
@@ -80,6 +80,11 @@
   * [检查代码风格](developer-guide/code-check/check-codestyle.md)
   * [检查文件许可证](developer-guide/code-check/check-license.md)
   * [检查依赖包许可证](developer-guide/code-check/check-dependency-license.md)
+
+## [性能测试](benchmark/README.md)
+
+* [容器场景iLogtail与Filebeat性能对比测试](benchmark/performance-compare-with-filebeat.md)
+
 ## 使用入门 <a href="#getting-started" id="getting-started"></a>
 
 * [如何将业务日志采集到Kafka](getting-started/how-to-collect-to-kafka.md)

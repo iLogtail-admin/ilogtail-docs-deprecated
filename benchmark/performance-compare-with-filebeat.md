@@ -1,4 +1,4 @@
-# 容器场景iLogtail 与Filebeat 性能对比测试
+# 容器场景iLogtail与Filebeat性能对比测试
 
 ## 前言
 前段时间, iLogtail（[https://github.com/alibaba/ilogtail](https://github.com/alibaba/ilogtail)）阿里千万实例可观测采集器开源，其中介绍了iLogtail采集性能可以达到单核100MB/s，相比开源采集Agent有5-10倍性能优势。很多小伙伴好奇iLogtail具体的性能数据和资源消耗如何，本文将针对目前业界使用度较高且性能相对较优的Agent FileBeat进行对比，测试这两个Agent在不同压力场景下的表现如何。
