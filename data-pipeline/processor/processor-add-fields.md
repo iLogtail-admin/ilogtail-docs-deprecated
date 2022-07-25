@@ -36,7 +36,7 @@ inputs:
 processors:
   - Type: processor_add_fields
     Fields: 
-      - service: A
+      service: A
     IgnoreIfExist: false
 flushers:
   - Type: flusher_sls
