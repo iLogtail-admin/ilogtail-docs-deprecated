@@ -20,6 +20,7 @@
   * [下载](installation/sources/download.md)
   * [编译](installation/sources/build.md)
   * [Docker镜像](installation/sources/docker-image.md)
+  * [编译依赖](installation/sources/dependencies.md)
 * [镜像站](installation/mirrors.md)
 
 ## 概念 <a href="#concepts" id="concepts"></a>
@@ -47,6 +48,9 @@
   * [Json](data-pipeline/processor/json.md)
   * [分隔符](data-pipeline/processor/delimiter.md)
   * [键值对](data-pipeline/processor/processor-split-key-value.md)
+  * [重命名字段](data-pipeline/processor/processor-rename.md)
+  * [丢弃字段](data-pipeline/processor/processor-drop.md)
+  * [添加字段](data-pipeline/processor/processor-add-fields.md)
 * [加速](data-pipeline/accelerator/README.md)
   * [正则加速](data-pipeline/accelerator/regex-accelerate.md)
   * [Json加速](data-pipeline/accelerator/json-accelerate.md)
@@ -60,6 +64,7 @@
 ## 工作原理 <a href="#principle" id="principle"></a>
 
 * [文件发现](principle/file-discovery.md)
+* [插件系统](principle/plugin-system.md)
 
 ## 可观测性 <a href="#observability" id="observability"></a>
 
@@ -67,11 +72,29 @@
 
 ## 开发者指南 <a href="#developer-guide" id="developer-guide"></a>
 
-* [CGO接口](developer-guide/cgo-interface.md)
-* [插件编写指南](developer-guide/plugin-guide.md)
+* [开发环境](developer-guide/development-environment.md)
+* [代码风格](developer-guide/codestyle.md)
+* [数据结构](developer-guide/data-structure.md)
+* [插件开发](developer-guide/plugin-development/README.md)
+  * [Checkpoint接口](developer-guide/plugin-development/checkpoint-api.md)
+  * [Logger接口](developer-guide/plugin-development/logger-api.md)
+  * [如何开发Input插件](developer-guide/plugin-development/how-to-write-input-plugins.md)
+  * [如何开发Processor插件](developer-guide/plugin-development/how-to-write-processor-plugins.md)
+  * [如何开发Aggregator插件](developer-guide/plugin-development/how-to-write-aggregator-plugins.md)
+  * [如何开发Flusher插件](developer-guide/plugin-development/how-to-write-flusher-plugins.md)
+  * [如何生成插件文档](developer-guide/plugin-development/how-to-genernate-plugin-docs.md)
+  * [纯插件模式启动](developer-guide/plugin-development/pure-plugin-start.md)
 * [测试](developer-guide/test/README.md)
-  * [单元测试](developer-guide/test/unit.md)
-  * [E2E测试](developer-guide/test/e2e.md)
+  * [单元测试](developer-guide/test/unit-test.md)
+  * [E2E测试](developer-guide/test/e2e-test.md)
+* [代码检查](developer-guide/code-check/README.md)
+  * [检查代码风格](developer-guide/code-check/check-codestyle.md)
+  * [检查文件许可证](developer-guide/code-check/check-license.md)
+  * [检查依赖包许可证](developer-guide/code-check/check-dependency-license.md)
+
+## 性能测试 <a href="#benchmark" id="benchmark"></a>
+
+* [容器场景iLogtail与Filebeat性能对比测试](benchmark/performance-compare-with-filebeat.md)
 
 ## 使用入门 <a href="#getting-started" id="getting-started"></a>
 

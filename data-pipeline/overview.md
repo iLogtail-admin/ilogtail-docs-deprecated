@@ -19,6 +19,9 @@
 | `processor_split_char`      | SLS官方 | -      | 通过单字符的分隔符提取字段。               |
 | `processor_split_string`    | SLS官方 | -      | 通过多字符的分隔符提取字段。               |
 | `processor_split_key_value` | SLS官方 | -      | 通过切分键值对的方式提取字段。             |
+| `processor_rename`          | SLS官方 | -      | 重命名字段。                               |
+| `processor_drop`            | SLS官方 | -      | 丢弃字段。                                 |
+| `processor_add_fields`      | SLS官方 | -      | 添加字段。                                 |
 
 ## 加速
 | 名称                        | 提供方  | 贡献者 | 简介                                       |
