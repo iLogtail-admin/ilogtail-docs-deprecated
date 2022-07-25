@@ -39,7 +39,7 @@ func (p *plugin) func1() {
 
 ```go
 import (
-"github.com/alibaba/ilogtail/pkg/logger"
+    "github.com/alibaba/ilogtail/pkg/logger"
 )
 ```
 
@@ -75,11 +75,11 @@ If config and logstore name not in context:
 
 ```go
 import (
-"context"
-"testing"
+    "context"
+    "testing"
 
-"github.com/alibaba/ilogtail/pkg/logger"
-_ "github.com/alibaba/ilogtail/pkg/logger/test"
+    "github.com/alibaba/ilogtail/pkg/logger"
+    _ "github.com/alibaba/ilogtail/pkg/logger/test"
 )
 
 func Test_plugin_func1(t *testing.T) {
