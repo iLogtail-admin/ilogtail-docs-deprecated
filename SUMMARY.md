@@ -66,13 +66,15 @@
 * [开发环境](developer-guide/development-environment.md)
 * [代码风格](developer-guide/codestyle.md)
 * [数据结构](developer-guide/data-structure.md)
-* [Checkpoint接口](developer-guide/checkpoint-api.md)
-* [Logger接口](developer-guide/logger-api.md)
-* [如何开发Input插件](developer-guide/how-to-write-input-plugins.md)
-* [如何开发Processor插件](developer-guide/how-to-write-processor-plugins.md)
-* [如何开发Aggregator插件](developer-guide/how-to-write-aggregator-plugins.md)
-* [如何开发Flusher插件](developer-guide/how-to-write-flusher-plugins.md)
-* [如何生成插件文档](developer-guide/how-to-genernate-plugin-docs.md)
+* [插件开发](developer-guide/plugin-development/README.md)
+  * [纯插件模式启动](developer-guide/plugin-development/pure-plugin-start.md)
+  * [Checkpoint接口](developer-guide/plugin-development/checkpoint-api.md)
+  * [Logger接口](developer-guide/plugin-development/logger-api.md)
+  * [如何开发Input插件](developer-guide/plugin-development/how-to-write-input-plugins.md)
+  * [如何开发Processor插件](developer-guide/plugin-development/how-to-write-processor-plugins.md)
+  * [如何开发Aggregator插件](developer-guide/plugin-development/how-to-write-aggregator-plugins.md)
+  * [如何开发Flusher插件](developer-guide/plugin-development/how-to-write-flusher-plugins.md)
+  * [如何生成插件文档](developer-guide/plugin-development/how-to-genernate-plugin-docs.md)
 * [测试](developer-guide/test/README.md)
   * [单元测试](developer-guide/test/unit-test.md)
   * [E2E测试](developer-guide/test/e2e-test.md)
@@ -81,7 +83,7 @@
   * [检查文件许可证](developer-guide/code-check/check-license.md)
   * [检查依赖包许可证](developer-guide/code-check/check-dependency-license.md)
 
-## [性能测试](benchmark/README.md)
+## 性能测试 <a href="#benchmark" id="benchmark"></a>
 
 * [容器场景iLogtail与Filebeat性能对比测试](benchmark/performance-compare-with-filebeat.md)
 

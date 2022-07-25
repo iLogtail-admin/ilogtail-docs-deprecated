@@ -76,7 +76,7 @@ cmake -DBUILD_LOGTAIL_UT=ON ..
 
 1\. 在容器内编译
 
-```
+```bash
 cd /src
 ./scripts/plugin_build.sh vendor c-shared output
 ```
@@ -87,7 +87,7 @@ cd /src
 
 `/src/output`目录的结构如下
 
-```
+```text
 /src/output
 ├── libPluginBase.h
 └── libPluginBase.so (插件lib）
@@ -97,14 +97,14 @@ cd /src
 
 当C++核心和Golang插件都编译完成后，可以将C++核心的构建结果拷贝到`/src/output`目录组装出完整的构建结果。
 
-```
+```bash
 cp -a /src/core/build/ilogtail /src/output
 cp -a /src/core/build/plugin/libPluginAdapter.so /src/output
 ```
 
 `/src/output`目录的结构如下
 
-```
+```text
 /src/output
 ├── ilogtail (主程序）
 ├── libPluginAdapter.so（插件接口）

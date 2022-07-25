@@ -1,23 +1,20 @@
-# 纯插件模式启动（过时）
-iLogtail是配置驱动的采集器，以下我们将介绍如何配置与启动iLogtail。
+# 纯插件模式启动
 
-## 快速启动
+纯插件模式为iLogtail插件开发提供轻量级测试能力，以下我们将介绍如以纯插件模式启动iLogtail。
 
-iLogtail 插件基于 Go 语言实现，所以在进行开发前，需要安装基础的 Go 1.16+
-语言开发环境，如何安装可以参见[官方文档](https://golang.org/doc/install)
-。在安装完成后，为了方便后续地开发，请遵照[此文档](https://golang.org/doc/code#Organization)
-正确地设置你的开发目录以及 GOPATH 等环境变量。本文的后续内容将假设你已安装 Go 开发环境且设置了 GOPATH。
-目前Logtail 插件支持Linux/Windows/macOS 上运行的，某些插件可能存在条件编译仅在Linux或Windows 下运行，请在相应环境进行调试，详细的描述可以参考 [此文档](../guides/How-to-do-manual-test.md)。
+## 本地启动
 
-### 本地启动
 在根目录下执行 `make plugin_main` 命令，会得到 `output/ilogtail` 可执行文件，使用以下命令可以快速启动iLogtail 程序，并将日志使用控制台输出。
+
 ```shell
 # 默认插件启动行为是使用metric_mock 插件mock 数据，并将数据进行日志模式打印。
  ./output/ilogtail --logger-console=true --logger-retain=false
 ```
 
 ## 配置
+
 iLogtail 目前提供以下3种模式进行配置设置：
+
 - 指定配置文件模式启动。
 - iLogtail 暴露Http 端口，可以进行配置变更。
 - iLogtail-C程序通过程序API进行配置变更。
@@ -25,6 +22,7 @@ iLogtail 目前提供以下3种模式进行配置设置：
 ### 指定配置文件模式启动
 
 在使用独立模式编译得到 ilogtail 这个可执行程序后，你可以通过为其指定一个配置文件（不指定的话默认为当前目录下 plugin.json）来启动它。
+
 ```json
 {
     "inputs": [
@@ -42,6 +40,7 @@ iLogtail 目前提供以下3种模式进行配置设置：
     "flushers": [ ... ]
 }
 ```
+
 首先，如上所示，配置文件是一个标准的 JSON 文件。其中的四个顶层键分别对应于文章中所说的四类插件：
 
 - inputs: 输入插件，获取数据。
@@ -109,26 +108,31 @@ iLogtail 目前提供以下3种模式进行配置设置：
 ### HTTP API 配置变更
 
 当iLogtail 以独立模式运行时，可以使用HTTP API 进行配置文件变更。
+
 - 端口： iLogtail 独立运行时，默认启动18689 端口进行监听配置输入。
 - 接口：/loadconfig
 
 接下来我们将使用HTTP 模式重新进行动态加载**指定配置文件模式启动**篇幅中的静态配置案例。
+
 1. 首先我们启动 iLogtail 程序： `./output/ilogtail`
 2. 使用以下命令进行配置重新加载。
-```shell
-curl 127.0.0.1:18689/loadconfig -X POST -d '[{"project":"e2e-test-project","logstore":"e2e-test-logstore","config_name":"test-case_0","logstore_key":1,"json_str":"{\"inputs\":[{\"type\":\"metric_mock\",\"detail\":{\"Index\":0,\"
-Fields\":{\"Content\":\"quickstart_input_1\"}}},{\"type\":\"metric_mock\",\"detail\":{\"Index\":100000000,\"Fields\":{\"Content\":\"quickstart_input_2\"}}}],\"processors\":[{\"type\":\"processor_default\"}],\"flushers\":[{\"type\":\"flusher_stdout\",\"detail\":{\"FileName\":\"quickstart_1.stdout\"}},{\"type\":\"flusher_stdout\",\"detail\":{\"FileName\":\"quickstart_2.stdout\"}}]}\n"}]'
-```
+
+   ```shell
+   curl 127.0.0.1:18689/loadconfig -X POST -d '[{"project":"e2e-test-project","logstore":"e2e-test-logstore","config_name":"test-case_0","logstore_key":1,"json_str":"{\"inputs\":[{\"type\":\"metric_mock\",\"detail\":{\"Index\":0,\"
+   Fields\":{\"Content\":\"quickstart_input_1\"}}},{\"type\":\"metric_mock\",\"detail\":{\"Index\":100000000,\"Fields\":{\"Content\":\"quickstart_input_2\"}}}],\"processors\":[{\"type\":\"processor_default\"}],\"flushers\":[{\"type\":\"flusher_stdout\",\"detail\":{\"FileName\":\"quickstart_1.stdout\"}},{\"type\":\"flusher_stdout\",\"detail\":{\"FileName\":\"quickstart_2.stdout\"}}]}\n"}]'
+   ```
+
 3. 查看日志观察到配置变更。
-```log
-2021-11-15 14:38:42 [INF] [logstore_config.go:113] [Start] [logtail_alarm,logtail_alarm]        config start:begin      
-2021-11-15 14:38:42 [INF] [logstore_config.go:151] [Start] [logtail_alarm,logtail_alarm]        config start:success    
-2021-11-15 14:38:42 [INF] [logstore_config.go:113] [Start] [test-case_0,e2e-test-logstore]      config start:begin      
-2021-11-15 14:38:42 [INF] [logstore_config.go:151] [Start] [test-case_0,e2e-test-logstore]      config start:success
-```
+
+   ```log
+   2021-11-15 14:38:42 [INF] [logstore_config.go:113] [Start] [logtail_alarm,logtail_alarm]        config start:begin      
+   2021-11-15 14:38:42 [INF] [logstore_config.go:151] [Start] [logtail_alarm,logtail_alarm]        config start:success    
+   2021-11-15 14:38:42 [INF] [logstore_config.go:113] [Start] [test-case_0,e2e-test-logstore]      config start:begin      
+   2021-11-15 14:38:42 [INF] [logstore_config.go:151] [Start] [test-case_0,e2e-test-logstore]      config start:success
+   ```
+
 4. 通过查看目录，会发现行为与上述静态配置方式一致，生成了 quickstart_1.stdout 和 quickstart_2.stdout 两个文件，并且它们的内容一致。
 
 ### C API 配置变更
 
-以C-shared模式编译，与C程序结合使用，对外开放API参考 [plugin_export.go](../../../plugin_main/plugin_export.go)。
-
+以C-shared模式编译，与C程序结合使用，对外开放API参考 [plugin_export.go](https://github.com/alibaba/ilogtail/blob/main/plugin_main/plugin_export.go)。
