@@ -15,7 +15,8 @@
 | MaxDepth | Integer | 否 | 日志目录被监控的最大深度，范围：0~1000。如果未添加该参数，则默认使用0，代表只监控本层目录。 |
 | DirBlackList | Array | 否 | 目录（绝对路径）黑名单。支持使用通配符星号（*）匹配多个目录。 |
 | FilepathBlackList | Array | 否 | 文件路径（绝对路径）黑名单。支持使用通配符星号（*）匹配多个文件。 |
-| DockerFile | Boolean | 否 | iLogtail与待采集日志是否处于不同环境中。如果未添加该参数，则默认使用false，代表iLogtail与待采集日志处于同一环境。（已弃用，若需要置为true，建议直接配置ContainerInfo参数即可） |
+| DockerFile | Boolean | 否 | 已弃用，与ContainerFile等价，建议直接配置ContainerFile参数 |
+| ContainerFile | Boolean | 否 | iLogtail与待采集日志是否处于不同环境中。如果未添加该参数，则默认使用false，代表iLogtail与待采集日志处于同一环境。 |
 | ContainerInfo | Map<String, Object> | 否 | 容器发现相关参数，具体内容见表1。仅当DockerFile参数为true时有效。若您的业务代码部署于容器环境时，可配置此参数。 |
 
 表1：容器发现相关参数
