@@ -6,6 +6,7 @@
 | ----------------------- | ------- | ------------------------------------------------- | -------------------- |
 | `file_log`              | SLS官方 | [`messixukejia`](https://github.com/messixukejia) | 文本采集             |
 | `metric_meta_host`      | SLS官方 | -                                                 | 主机Meta数据         |
+| `service_kafka`    | SLS官方 | -                                                 | 将Kafka数据输入到iLogtail |
 | `metric_input_example`  | SLS官方 | -                                                 | MetricInput示例插件  |
 | `service_input_example` | SLS官方 | -                                                 | ServiceInput示例插件 |
 
@@ -25,6 +26,13 @@
 | `processor_add_fields`      | SLS官方 | -      | 添加字段。                                 |
 | `processor_fields_with_conditions` | 社区    | [`pj1987111`](https://github.com/pj1987111) | 根据日志部分字段的取值，动态进行字段扩展或删除。 |
 | `processor_default`                | SLS官方 | -                                           | 不对数据任何操作，只是简单的数据透传。           |
+
+## 加速
+| 名称                        | 提供方  | 贡献者 | 简介                                       |
+| --------------------------- | ------- | ------ | ------------------------------------------ |
+| `processor_regex_accelerate` | SLS官方 | -      | 通过正则匹配以加速模式实现文本日志的字段提取。     |
+| `processor_json_accelerate`  | SLS官方 | -      | 以加速模式实现`Json`格式日志的字段提取。         |
+| `processor_delimiter_accelerate` | SLS官方 | -  | 以加速模式实现分隔符日志的字段提取。             |
 
 
 ## 聚合
