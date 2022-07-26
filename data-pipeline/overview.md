@@ -2,14 +2,13 @@
 
 ## 输入
 
-| 名称                    | 提供方  | 贡献者                                            | 简介                 |
+| <div style="width:165px">名称</div>                    | <div style="width:65px">提供方</div>  | <div style="width:65px">贡献者</div>                                            | <div style="width:395px">简介</div>                 |
 | ----------------------- | ------- | ------------------------------------------------- | -------------------- |
 | `file_log`              | SLS官方 | [`messixukejia`](https://github.com/messixukejia) | 文本采集             |
 | `metric_meta_host`      | SLS官方 | -                                                 | 主机Meta数据         |
 | `service_kafka`    | SLS官方 | -                                                 | 将Kafka数据输入到iLogtail |
 | `metric_input_example`  | SLS官方 | -                                                 | MetricInput示例插件  |
 | `service_input_example` | SLS官方 | -                                                 | ServiceInput示例插件 |
-
 
 ## 处理
 
@@ -28,12 +27,12 @@
 | `processor_default`                | SLS官方 | -                                           | 不对数据任何操作，只是简单的数据透传。           |
 
 ## 加速
+
 | 名称                        | 提供方  | 贡献者 | 简介                                       |
 | --------------------------- | ------- | ------ | ------------------------------------------ |
 | `processor_regex_accelerate` | SLS官方 | -      | 通过正则匹配以加速模式实现文本日志的字段提取。     |
 | `processor_json_accelerate`  | SLS官方 | -      | 以加速模式实现`Json`格式日志的字段提取。         |
 | `processor_delimiter_accelerate` | SLS官方 | -  | 以加速模式实现分隔符日志的字段提取。             |
-
 
 ## 聚合
 
