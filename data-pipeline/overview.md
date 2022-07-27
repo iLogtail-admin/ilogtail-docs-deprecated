@@ -22,6 +22,7 @@
 | `processor_split_string`    | SLS官方 | -      | 通过多字符的分隔符提取字段。               |
 | `processor_split_key_value` | SLS官方 | -      | 通过切分键值对的方式提取字段。             |
 | `processor_rename`          | SLS官方 | -      | 重命名字段。                               |
+| `processor_filter_key`      | SLS官方 | -      | 过滤日志。                               |
 | `processor_drop`            | SLS官方 | -      | 丢弃字段。                                 |
 | `processor_add_fields`      | SLS官方 | -      | 添加字段。                                 |
 | `processor_fields_with_conditions` | 社区    | [`pj1987111`](https://github.com/pj1987111) | 根据日志部分字段的取值，动态进行字段扩展或删除。 |
