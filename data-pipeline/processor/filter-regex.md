@@ -33,7 +33,7 @@ enable: true
 inputs:
   - Type: file_log
     LogPath: /home/test-log/
-    FilePattern: json.log
+    FilePattern: proccessor-filter-regex.log
 processors:
   - Type: processor_json
     SourceKey: content
