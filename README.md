@@ -43,7 +43,7 @@ iLogtail 为可观测场景而生，拥有的轻量级、高性能、自动化�
 
 * 交流群请扫描
 
-![](.gitbook/assets/chatgroup.png)
+<img src="https://ilogtail-community-edition.oss-cn-shanghai.aliyuncs.com/images/chat-group.png" style="width: 80%; height: 80%" />
 
 * 微信公众号：日志服务
 * 哔哩哔哩：[阿里云SLS](https://space.bilibili.com/630680534?from=search\&seid=2845737427240690794\&spm\_id\_from=333.337.0.0)
