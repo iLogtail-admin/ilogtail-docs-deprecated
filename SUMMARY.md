@@ -107,6 +107,7 @@
 
 * [贡献指南](contributing/CONTRIBUTING.md)
 * [开发者](contributing/developer.md)
+* [成就](contributing/achievement.md)
 
 ## 性能测试 <a href="#benchmark" id="benchmark"></a>
 
@@ -115,3 +116,5 @@
 ## Awesome iLogtail <a href="#awesome-ilogtail" id="awesome-ilogtail"></a>
 
 * [iLogtail社区版使用入门](awesome-ilogtail/getting-started.md)
+* [iLogtail社区版开发者指南](awesome-ilogtail/developer-guide.md)
+* [iLogtail社区版使用案例](awesome-ilogtail/use-cases.md)
