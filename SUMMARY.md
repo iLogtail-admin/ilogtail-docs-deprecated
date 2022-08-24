@@ -113,7 +113,7 @@
 
 * [容器场景iLogtail与Filebeat性能对比测试](benchmark/performance-compare-with-filebeat.md)
 
-## Awesome iLogtail <a href="#awesome-ilogtail" id="awesome-ilogtail"></a>
+## Awesome iLogtail
 
 * [走近iLogtail社区版](awesome-ilogtail/ilogtail.md)
 * [iLogtail社区版使用入门](awesome-ilogtail/getting-started.md)
