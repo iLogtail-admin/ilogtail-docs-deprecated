@@ -16,6 +16,7 @@
 | `service_kafka`<br>Kafka | SLS官方 | 将Kafka数据输入到iLogtail。 |
 | `service_mock`<br>Mock数据-Service | SLS官方 | 生成service模拟数据的插件。 |
 | `service_syslog`<br>Syslog数据 | SLS官方 | 采集syslog数据。 |
+| `observer_ilogtail_network`<br>无侵入网络调用数据 | SLS官方                                                      | 支持从网络系统调用中收集四层网络调用，并借助网络解析模块，可以观测七层网络调用细节。 |
 
 ## 处理
 
